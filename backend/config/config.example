@@ -1,0 +1,14 @@
+// Use this example to create your own config.js
+const config = {}
+
+config.REDISHOST = ""
+config.REDISPORT = 
+config.REDISPWD = ""
+config.APPLICATIONHOST = 'X.X.X.X' 
+config.APPLICATIONPORT = 
+
+module.exports.REDISHOST = config.REDISHOST
+module.exports.REDISPORT = config.REDISPORT
+module.exports.REDISPWD = config.REDISPWD
+module.exports.APPLICATIONHOST = config.APPLICATIONHOST
+module.exports.APPLICATIONPORT = config.APPLICATIONPORT
