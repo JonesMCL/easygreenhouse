@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <title>Easy Greenhouse - Dashboard</title>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bx-donate-blood'></i>
+      <div class="logo-all">
+        <a href="/frontend/prototype/home/" class="logo-1">EASY</a><br>
+        <a href="/frontend/prototype/home/" class="logo-2">GREEN</a>
+        <a href="/frontend/prototype/home/" class="logo-3">HOUSE</a>
+        </div>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/frontend/prototype/home/admin/">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="/frontend/prototype/home/admin/Wetterstation/">
+          <i class='bx bx-station'></i>
+          <span class="links_name">Wetterstation</span>
+        </a>
+      </li>
+      <li>
+        <a href="/frontend/prototype/home/admin/Status/" class="active">
+          <i class='bx bx-info-circle' ></i>
+          <span class="links_name">Status</span>
+        </a>
+      </li>
+      <li>
+        <a href="/frontend/prototype/home/admin/Boden/">
+          <i class='bx bxs-layer' style='color:#ffffff'  ></i>
+            <span class="links_name">Boden</span>
+          </a>
+    </li>
+      <li>
+        <a href="/frontend/prototype/home/admin/Luft/">
+          <i class='bx bx-wind'></i>
+          <span class="links_name">Luft</span>
+        </a>
+      </li>
+      <li>
+          <a href="/frontend/prototype/home/admin/Bewaesserung/">
+              <i class='bx bx-water'></i>
+              <span class="links_name">Bewässerung</span>
+            </a>
+      </li>
+      <li>
+          <a href="/frontend/prototype/home/admin/Licht/">
+              <i class='bx bxs-sun' ></i>
+              <span class="links_name">Licht</span>
+            </a>
+      </li>
+      <li>
+        <a href="/frontend/prototype/home/admin/Log">
+          <i class='bx bx-error'></i>
+          <span class="links_name">Log</span>
+        </a>
+      </li>
+      <li>
+        <a href="/frontend/prototype/home/admin/Einstellungen/">
+          <i class='bx bx-cog' ></i>
+          <span class="links_name">Einstellungen</span>
+        </a>
+      </li>
+      <li>
+        <li class="Impressum">
+        <a href="/frontend/prototype/home/Impressum/">
+          <i class='bx bxs-copyright'></i>
+          <span class="links_name">Impressum</span>
+        </a></li>
+      </li>
+      <li>
+        <li class="Datenschutz">
+        <a href="/frontend/prototype/home/Datenschutz/">
+          <i class='bx bx-book-alt' style='color:#ffffff'  ></i>
+          <span class="links_name">Datenschutz</span>
+        </a></li>
+      </li>
+      <li class="log_out">
+        <a href="/frontend/prototype/home/">
+          <i class='bx bx-log-out'></i>
+          <span class="links_name">Log out</span>
+        </a>
+      </li>
+    </ul>
+</div>
+<section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Dashboard</span>
+          <header><ul>
+            <li><a href="/frontend/prototype/home/">Home</a></li>
+            <li><a href="/frontend/prototype/home/admin" class="active">Dashboard</a></li>
+            <li><a href="/frontend/prototype/home/ueber-diese-Website/">Über diese Website</a></li>
+        </ul></header>
+    </nav>
+  <!--Hier kommt der Hauptteil des Dashboards rein-->
+
+  <div class="home-content">
+    <div class="overview-boxes">
+      <div class="box">
+        <div class="right-side">
+          <div class="check-icon-1"><i class='bx bxs-check-circle' ></i></div>
+          <div class="box-topic">Easy Blog</div>
+          <center><div class="data-status-1">online</div></center>
+          <div class="indicator">
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <div class="check-icon-2"><i class='bx bxs-check-circle' ></i></div>
+          <div class="box-topic">cloud</div>
+          <center><div class="data-status-2">online</div></center>
+          <div class="indicator">
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <div class="check-icon-3"><i class='bx bxs-check-circle' ></i></div>
+          <div class="box-topic">wordpress</div>
+          <center><div class="data-status-3">online</div></center>
+          <div class="indicator">
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="overview-boxes">
+      <div class="box">
+        <div class="right-side">
+          <div class="check-icon-4"><i class='bx bxs-error-circle'></i></div>
+          <div class="box-topic">wordpress</div>
+          <center><div class="data-status-4">unbekannt</div></center>
+          <div class="indicator">
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <div class="check-icon-5"><i class='bx bxs-x-circle'></i></div>
+          <div class="box-topic">STROM</div>
+          <center><div class="data-status-5">Battery</div></center>
+          <div class="indicator">
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <div class="check-icon-6"><i class='bx bxs-check-circle' ></i></div>
+          <div class="box-topic">cloud</div>
+          <center><div class="data-status-6">online</div></center>
+          <div class="indicator">
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+
+
+  </section>
+  <script>
+   let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".sidebarBtn");
+sidebarBtn.onclick = function() {
+  sidebar.classList.toggle("active");
+  if(sidebar.classList.contains("active")){
+  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+}else
+  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+}
+ </script>
+
+</body>
+</html>

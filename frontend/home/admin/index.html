@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <title>Easy Greenhouse - Dashboard</title>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bx-donate-blood'></i>
+      <div class="logo-all">
+        <a href="/frontend/prototype/home/" class="logo-1">EASY</a><br>
+        <a href="/frontend/prototype/home/" class="logo-2">GREEN</a>
+        <a href="/frontend/prototype/home/" class="logo-3">HOUSE</a>
+        </div>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/frontend/prototype/home/admin/" class="active">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="/frontend/prototype/home/admin/Wetterstation/">
+          <i class='bx bx-station'></i>
+          <span class="links_name">Wetterstation</span>
+        </a>
+      </li>
+      <li>
+        <a href="/frontend/prototype/home/admin/Status/">
+          <i class='bx bx-info-circle' ></i>
+          <span class="links_name">Status</span>
+        </a>
+      </li>
+       <li>
+          <a href="/frontend/prototype/home/admin/Boden/">
+            <i class='bx bxs-layer' style='color:#ffffff'  ></i>
+              <span class="links_name">Boden</span>
+            </a>
+      </li>
+      <li>
+        <a href="/frontend/prototype/home/admin/Luft/">
+          <i class='bx bx-wind'></i>
+          <span class="links_name">Luft</span>
+        </a>
+      </li>
+      <li>
+          <a href="/frontend/prototype/home/admin/Bewaesserung/">
+              <i class='bx bx-water'></i>
+              <span class="links_name">Bewässerung</span>
+            </a>
+      </li>
+      <li>
+          <a href="/frontend/prototype/home/admin/Licht/">
+              <i class='bx bxs-sun' ></i>
+              <span class="links_name">Licht</span>
+            </a>
+      </li>
+      <li>
+        <a href="/frontend/prototype/home/admin/Log">
+          <i class='bx bx-error'></i>
+          <span class="links_name">Log</span>
+        </a>
+      </li>
+      <li>
+        <a href="/frontend/prototype/home/admin/Einstellungen/">
+          <i class='bx bx-cog' ></i>
+          <span class="links_name">Einstellungen</span>
+        </a>
+      </li>
+      <li>
+        <li class="Impressum">
+        <a href="/frontend/prototype/home/Impressum/">
+          <i class='bx bxs-copyright'></i>
+          <span class="links_name">Impressum</span>
+        </a></li>
+      </li>
+      <li>
+        <li class="Datenschutz">
+        <a href="/frontend/prototype/home/Datenschutz/">
+          <i class='bx bx-book-alt' style='color:#ffffff'  ></i>
+          <span class="links_name">Datenschutz</span>
+        </a></li>
+      </li>
+      <li class="log_out">
+        <a href="/frontend/prototype/home/">
+          <i class='bx bx-log-out'></i>
+          <span class="links_name">Log out</span>
+        </a>
+      </li>
+      <li class="log_out">
+        <a href="/frontend/prototype/home/">
+          <i class='bx bx-log-out'></i>
+          <span class="links_name">Log out</span>
+        </a>
+      </li>
+    </ul>
+</div>
+<section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Dashboard</span>
+          <header><ul>
+            <li><a href="/frontend/prototype/home/">Home</a></li>
+            <li><a href="/frontend/prototype/home/admin" class="active">Dashboard</a></li>
+            <li><a href="/frontend/prototype/home/ueber-diese-Website/">Über diese Website</a></li>
+        </ul></header>
+    </nav>
+  <!--Hier kommt der Hauptteil des Dashboards rein-->
+
+    <div class="home-content">
+      <div class="overview-boxes">
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Luft</div>
+            <div class="data-1">Lufttemperatur:&nbsp;&nbsp;&nbsp;&nbsp;<span class="data-numb-1">27,6 °C</span></div>
+            <div class="data-2">Luftfeuchtigkeit:&nbsp;&nbsp;&nbsp;&nbsp;<span class="data-numb-2">7 %</span></div>
+            <br><div class="see-more"><a style="text-decoration: none;" href="/frontend/prototype/home/admin/Luft/">siehe mehr</a></div>
+            <div class="indicator">
+            </div>
+          </div>
+        </div>
+        <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Pflanzenstatus</div>
+              <div class="center-data-1">Trocken</div><br>
+              <div class="center-data-2">Bitte gießen!</div>
+              <div><br></div>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+<!--Diesen teil rausnehmen, wenn man nur drei kasten in eier reihe haben möchte (hierbei müssen aber auch die anstände angepasst werden)-->
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Pflanzenstatus</div>
+              <div class="center-data-1">Trocken</div><br>
+              <div class="center-data-2">Bitte gießen!</div>
+              <div><br></div>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+<!--Diesen teil rausnehmen, wenn man nur drei kasten in eier reihe haben möchte (hierbei müssen aber auch die anstände angepasst werden)-->
+<div class="box">
+            <div class="right-side">
+              <div class="box-topic">Boden</div>
+              <div class="data-1">Bodentemperatur:&nbsp;&nbsp;&nbsp;&nbsp;<span class="two-data-numb-1">23,1 °C</span></div>
+              <div class="data-2">Bodenfeuchtigkeit:&nbsp;&nbsp;&nbsp;&nbsp;<span class="two-data-numb-2">23 %</span></div>
+              <br><div class="see-more"><a style="text-decoration: none;" href="/frontend/prototype/home/admin/Boden/">siehe mehr</a></div>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+        </div>
+<!--Hier beginnt eine neue Zeile an Daten--> 
+        <div class="overview-boxes">
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Bewässerung<span class="status-bew">&nbsp;- aktuell:<span class="status-status">&nbsp;inaktiv</span></span></div>
+              <div class="data-1">Tank:&nbsp;&nbsp;&nbsp;&nbsp;<span class="three-data-numb-1">3 % - Auffüllen!<br></span></div>
+              <div class="data-2">Autom. aktiv ab:&nbsp;&nbsp;&nbsp;<span class="three-data-numb-2">20 % Bodenf.</span></div>
+              <br><div class="see-more"><a style="text-decoration: none;" href="/frontend/prototype/home/admin/Bewaesserung/">siehe mehr</a></div>
+              <!--größe angleichen-->
+              <div><br><br><br><br></div>
+              <!--größe angleichen-->
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Website-status</div>
+              <div class="zap"><i class='bx bxs-zap'></i><span class="zap-text">&nbsp;Strom:&nbsp;</span><span class="zap-status>">battery</span></div>
+              <div class="data-2">cloud:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-1">online</span></div>
+              <div class="data-2">Easy Blog:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-2">online</span></div>
+              <div class="data-2">wordpress:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-3">online</span></div>
+              <div class="data-2">wordpress:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-4">unbekannt</span></div>
+              <div class="data-2">cloud:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-5">online</span></div>
+              <br><div class="see-more"><a style="text-decoration: none;" href="/frontend/prototype/home/admin/Status/">siehe mehr</a></div>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+<!--Diesen teil rausnehmen, wenn man nur drei kasten in eier reihe haben möchte (hierbei müssen aber auch die anstände angepasst werden)-->
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Website-status</div>
+              <div class="zap"><i class='bx bxs-zap'></i><span class="zap-text">&nbsp;Strom:&nbsp;</span><span class="zap-status>">battery</span></div>
+              <div class="data-2">cloud:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-1">online</span></div>
+              <div class="data-2">Easy Blog:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-2">online</span></div>
+              <div class="data-2">wordpress:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-3">online</span></div>
+              <div class="data-2">wordpress:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-4">unbekannt</span></div>
+              <div class="data-2">cloud:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-5">online</span></div>
+              <br><div class="see-more"><a style="text-decoration: none;" href="/frontend/prototype/home/admin/Status/">siehe mehr</a></div>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+<!--Diesen teil rausnehmen, wenn man nur drei kasten in eier reihe haben möchte (hierbei müssen aber auch die anstände angepasst werden)-->
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Licht</div>
+              <div class="data-1">UV-index:&nbsp;&nbsp;&nbsp;&nbsp;<span class="five-data-numb-1">3&nbsp;&nbsp;&nbsp;<br></span></div>
+              <div class="data-2">Watt:&nbsp;&nbsp;&nbsp;<span class="five-data-numb-2">307,3 w/m2</span></div>
+              <br><div class="see-more"><a style="text-decoration: none;" href="/frontend/prototype/home/admin/Licht/">siehe mehr</a></div>
+              <!--größe angleichen-->
+              <div><br><br><br><br></div>
+              <!--größe angleichen-->
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Hier beginnt eine neue Zeile an Daten--> 
+        <div class="overview-boxes">
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Log</div>
+              <div class="data-1-log-1">Login success: Manuel Mustermann</div>
+              <div class="data-1-log-2">Login failed: Simon Tadaschi</div>
+              <div class="data-1-log-3">Login success: Chris willson</div>
+              <div class="data-1-log-4">Login failed - warning: Leon Douglas</div>
+              <div class="data-1-log-5">Login failed - warning: Leon Douglas</div>
+              <div class="data-1-log-6">#sensor2 - connection error</div>
+              <div class="data-1-log-7">warning: power failure! Use battery</div>
+              <div class="data-1-log-8">warning: power back! Use norm. power</div>
+              <div class="data-1-log-9">#sensor2 - connection error</div>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Website-status</div>
+              <div class="zap"><i class='bx bxs-zap'></i><span class="zap-text">&nbsp;Strom:&nbsp;</span><span class="zap-status>">battery</span></div>
+              <div class="data-2">cloud:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-1">online</span></div>
+              <div class="data-2">Easy Blog:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-2">online</span></div>
+              <div class="data-2">wordpress:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-3">online</span></div>
+              <div class="data-2">wordpress:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-4">unbekannt</span></div>
+              <div class="data-2">cloud:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-5">online</span></div>
+              <br><div class="see-more"><a style="text-decoration: none;" href="/frontend/prototype/home/admin/Status/">siehe mehr</a></div>
+              <!--größe angleichen-->
+              <div><br><br></div>
+              <!--größe angleichen-->
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+<!--Diesen teil rausnehmen, wenn man nur drei kasten in eier reihe haben möchte (hierbei müssen aber auch die anstände angepasst werden)-->
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Website-status</div>
+              <div class="zap"><i class='bx bxs-zap'></i><span class="zap-text">&nbsp;Strom:&nbsp;</span><span class="zap-status>">battery</span></div>
+              <div class="data-2">cloud:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-1">online</span></div>
+              <div class="data-2">Easy Blog:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-2">online</span></div>
+              <div class="data-2">wordpress:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-3">online</span></div>
+              <div class="data-2">wordpress:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-4">unbekannt</span></div>
+              <div class="data-2">cloud:&nbsp;&nbsp;&nbsp;<span class="four-data-numb-5">online</span></div>
+              <br><div class="see-more"><a style="text-decoration: none;" href="/frontend/prototype/home/admin/Status/">siehe mehr</a></div>
+              <!--größe angleichen-->
+              <div><br><br></div>
+              <!--größe angleichen-->
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+<!--Diesen teil rausnehmen, wenn man nur drei kasten in eier reihe haben möchte (hierbei müssen aber auch die anstände angepasst werden)-->
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Licht</div>
+              <div class="data-1">UV-index:&nbsp;&nbsp;&nbsp;&nbsp;<span class="five-data-numb-1">3&nbsp;&nbsp;&nbsp;<br></span></div>
+              <div class="data-2">Watt:&nbsp;&nbsp;&nbsp;<span class="five-data-numb-2">307,3 w/m2</span></div>
+              <br><div class="see-more"><a style="text-decoration: none;" href="/frontend/prototype/home/admin/Licht/">siehe mehr</a></div>
+              <!--größe angleichen-->
+              <div><br><br><br><br><br><br></div>
+              <!--größe angleichen-->
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+        </div>
+  </section>
+  <script>
+   let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".sidebarBtn");
+sidebarBtn.onclick = function() {
+  sidebar.classList.toggle("active");
+  if(sidebar.classList.contains("active")){
+  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+}else
+  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+}
+ </script>
+</body>
+</html>
