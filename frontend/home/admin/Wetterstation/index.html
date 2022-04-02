@@ -105,15 +105,14 @@
             <li><a href="/frontend/home/ueber-diese-Website/">Über diese Website</a></li>
         </ul></header>
     </nav>
-  <!--Hier kommt der Hauptteil des Dashboards rein-->
+  <!--main part of the dashboard-->
   <head>
 <body>
 <div id="placeholder">No data availible!<br>This Page is currently in Maintenance!<br>An api will be integrated here soon.</div>
-</body>
-</html>
-  </section>
-  <script>
-   let sidebar = document.querySelector(".sidebar");
+
+</section>
+<script>
+let sidebar = document.querySelector(".sidebar");
 let sidebarBtn = document.querySelector(".sidebarBtn");
 sidebarBtn.onclick = function() {
   sidebar.classList.toggle("active");
@@ -122,7 +121,6 @@ sidebarBtn.onclick = function() {
 }else
   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
 }
- </script>
-
+</script>
 </body>
 </html>
