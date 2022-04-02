@@ -6,7 +6,8 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-/* Kompaktes Layout für mobile Geräte */
+/* Coding by Easy Tec | easytec.tech */
+/* Compact layout for mobile devices */
 .sidebar{
   position: fixed;
   height: 100%;
@@ -337,81 +338,81 @@ nav .profile-details i{
 }
 body .logo-all
 {
-    color: #008037;
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0px;
+  color: #008037;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0px;
 }
 body .logo-1
 {
-    color: #008037;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  color: #008037;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 body .logo-2
 {
-    color: #7ED957;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  color: #7ED957;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 body .logo-3
 {
-    color: white;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 nav .header
 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding-left: 80;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 80;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 header ul
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    padding-right: 10px;
-    padding-left:450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding-right: 10px;
+  padding-left:450px;
 }
 header ul li
 {
-    list-style: none;
-    margin-left: 20px;
+  list-style: none;
+  margin-left: 20px;
 }
 header ul li a
 {
-    text-decoration: none;
-    padding: 6px 15px;
-    color: black;
-    border-radius: 20px;
+  text-decoration: none;
+  padding: 6px 15px;
+  color: black;
+  border-radius: 20px;
 }
 header ul li a:hover,
 .active
 {
-    background: #fff;
-    color: #2b1055;
-    background: linear-gradient(-135deg, #00a849, #4158d0);
+  background: #fff;
+  color: #2b1055;
+  background: linear-gradient(-135deg, #00a849, #4158d0);
 }
 
 
-/* mehrspaltiges Layout für breitere Bildschirme */
+/* multi-column layout for wider screens (computer) */
 @media (min-width: 30em) {
 
 .sidebar{
@@ -744,76 +745,76 @@ nav .profile-details i{
 }
 body .logo-all
 {
-    color: #008037;
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0px;
+  color: #008037;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0px;
 }
 body .logo-1
 {
-    color: #008037;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  color: #008037;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 body .logo-2
 {
-    color: #7ED957;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  color: #7ED957;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 body .logo-3
 {
-    color: white;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 nav .header
 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding-left: 80;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 80;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 header ul
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    padding-right: 10px;
-    padding-left:450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding-right: 10px;
+  padding-left:450px;
 }
 header ul li
 {
-    list-style: none;
-    margin-left: 20px;
+  list-style: none;
+  margin-left: 20px;
 }
 header ul li a
 {
-    text-decoration: none;
-    padding: 6px 15px;
-    color: black;
-    border-radius: 20px;
+  text-decoration: none;
+  padding: 6px 15px;
+  color: black;
+  border-radius: 20px;
 }
 header ul li a:hover,
 .active
 {
-    background: #fff;
-    color: #2b1055;
-    background: linear-gradient(-135deg, #00a849, #4158d0);
+  background: #fff;
+  color: #2b1055;
+  background: linear-gradient(-135deg, #00a849, #4158d0);
 }
 }
