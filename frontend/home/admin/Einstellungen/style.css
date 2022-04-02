@@ -10,7 +10,7 @@
   position: fixed;
   height: 100%;
   width: 240px;
-  background: #0A2558;
+  background: linear-gradient(-135deg, #00a849, #4158d0);
   transition: all 0.5s ease;
 }
 .sidebar.active{
@@ -197,7 +197,7 @@ nav .profile-details i{
 .overview-boxes .box{
   width: calc(100% / 4 - 15px);
   background: #fff;
-  width:575px;
+  width: 575px;
   height: 225px;
   padding: 15px 14px;
   border-radius: 12px;
@@ -244,6 +244,7 @@ nav .profile-details i{
   display: inline-block;
   font-size: 10px;
   margin-top: -6px;
+  padding-top: 5px;
   font-weight: 500;
   color: orangered;
 }
@@ -387,6 +388,5 @@ header ul li a:hover,
 {
     background: #fff;
     color: #2b1055;
-    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #00a849, #4158d0);
 }
-

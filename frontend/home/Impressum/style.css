@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: Poppins, sans-serif;
 }
+/* Kompaktes Layout für mobile Geräte */
 body
 {
     min-height: 100vh;
@@ -13,17 +14,160 @@ body
 }
 header
 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 header .logo
 {
+  font-size: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: left;
+}
+header .logo-txt-1
+{
+  color: #008037;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+header .logo-txt-2
+{
+  color: #7ED957;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+header .logo-txt-3
+{
+    color: #3D3030;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+header ul
+{
+  font-size: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header ul li
+{
+    list-style: none;
+    margin-left: 0.2px;
+}
+header ul li a
+{
+    text-decoration: none;
+    padding: 6px 12px;
+    color: black;
+    border-radius: 20px;
+}
+header ul li a:hover,
+.active
+{
+    background: #fff;
+    color: #2b1055;
+    background: linear-gradient(-135deg, #00a849, #4158d0);
+}
+#Impressum-text
+{
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 140px;
+    padding-top: 75px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: black;
+    line-height: 25px;
+}
+footer{
+    position: fixed;
+    background: #140B5C;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  footer::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100px;
+    height: 1px;
+    width: 100%;
+    background: #AFAFB6;
+  }
+  footer .content{
+    max-width: 1250px;
+    margin: auto;
+    padding: 30px 40px 40px 40px;
+  }
+  footer .content .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+  footer .bottom-details{
+    width: 100%;
+    background: linear-gradient(-135deg, #00a849, #4158d0);
+  }
+  footer .bottom-details .bottom_text{
+    max-width: 1250px;
+    margin: auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .bottom-details .bottom_text span,
+  .bottom-details .bottom_text a{
+   font-size: 8px;
+   font-weight: 300;
+   color: #fff;
+   opacity: 0.8;
+   text-decoration: none;
+  }
+  .bottom-details .bottom_text a:hover
+  {
+    opacity: 1;
+    text-decoration: underline;
+  }
+  .bottom-details .bottom_text .copyright_text {
+    text-align: right;
+  }
+  .bottom-details .bottom_text .policy_terms {
+    text-align: left;
+  }
+
+
+
+/* mehrspaltiges Layout für breitere Bildschirme */
+@media (min-width: 30em) {
+header
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo
+{
+  font-size: 31.5px;
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
@@ -34,7 +178,6 @@ header .logo-txt-1
     color: #008037;
     font-weight: 700;
     text-decoration: none;
-    font-size: 2em;
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 12px;
@@ -44,7 +187,6 @@ header .logo-txt-2
     color: #7ED957;
     font-weight: 700;
     text-decoration: none;
-    font-size: 2em;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -53,15 +195,15 @@ header .logo-txt-3
     color: #3D3030;
     font-weight: 700;
     text-decoration: none;
-    font-size: 2em;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 header ul
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-size: 17.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 header ul li
 {
@@ -80,7 +222,7 @@ header ul li a:hover,
 {
     background: #fff;
     color: #2b1055;
-    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #00a849, #4158d0);
 }
 #Impressum-text
 {
@@ -124,7 +266,7 @@ footer{
   }
   footer .bottom-details{
     width: 100%;
-    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #00a849, #4158d0);
   }
   footer .bottom-details .bottom_text{
     max-width: 1250px;
@@ -140,14 +282,17 @@ footer{
    color: #fff;
    opacity: 0.8;
    text-decoration: none;
+   white-space: normal;
   }
   .bottom-details .bottom_text a:hover
   {
     opacity: 1;
     text-decoration: underline;
   }
-  .bottom-details .bottom_text a{
-    padding-left: 7px;
-    padding-right: 20px;
+  .bottom-details .bottom_text .copyright_text {
+    text-align: right;
   }
-
+  .bottom-details .bottom_text .policy_terms {
+    text-align: left;
+  }
+}

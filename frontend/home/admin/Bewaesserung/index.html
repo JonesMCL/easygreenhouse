@@ -127,47 +127,31 @@
           <div class="right-side">
             <div>
               <div>
-                <div class="checkbox">
-                  <input type="checkbox" id="click">
-                  <label for="click" class="text"></label>
-                </div>
                 <div class="box-topic-2">automatisch aktivieren:</div>
-                <input type="checkbox" id="" name="">
-                <label for="">20 % Luftfeuchtigkeit</label>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-              <input type="checkbox" id="" name="">
-              <label for="">20 % Bodenfeuchtigkeit</label>
-            </div>
-            <div>
-              <input type="checkbox" id="" name="">
-              <label for="">25 °C Lufttemperatur</label>
-              &nbsp;&nbsp;&nbsp;
-              <input type="checkbox" id="" name="">
-              <label for="">25 °C Bodentemperatur</label>
-            </div>
-            &nbsp;
-            <div class="box-topic-2">automatisch deaktivieren:</div>
-            <input type="checkbox" id="" name="">
-            <label for="">80 % Luftfeuchtigkeit</label>
-            &nbsp;&nbsp;&nbsp;
-          <input type="checkbox" id="" name="">
-          <label for="">80 % Bodenfeuchtigkeit</label>
-        </div>
-        <div>
-          <input type="checkbox" id="" name="">
-          <label for="">5 °C Lufttemperatur</label>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="checkbox" id="" name="">
-          <label for="">5 °C Bodentemperatur</label>
-&nbsp;&nbsp;&nbsp;
-          <input type="checkbox" id="" name="">
-          <label for="">5 % Tankfüllung</label>
-        </div>
+                <form id="auto-enable" action="?submit=">
+                  <select name="auto-enable" id="auto-enable">
+                  <option value="" disabled selected>Bitte wählen</option>
+                  <option value="20Luftfeucht">20 % Luftfeuchtigkeit</option>
+                  <option value="25Lufttemp">25°C Lufttemperatur</option>
+                  <option value="20Bodenfeucht">20 % Bodenfeuchtigkeit</option>
+                  <option value="25Bodentemp">25°C Bodentemperatur</option>
+                </select>
+                <div class="box-topic-2">automatisch deaktivieren:</div>
+                  <select name="auto-disable" id="auto-disable">
+                  <option value="" disabled selected>Bitte wählen</option>
+                  <option value="80Luftfeucht">80 % Luftfeuchtigkeit</option>
+                  <option value="5Lufttemp">5°C Lufttemperatur</option>
+                  <option value="80Bodenfeucht">80 % Bodenfeuchtigkeit</option>
+                  <option value="5Bodentemp">5°C Bodentemperatur</option>
+                  <option value="5Tank">5 % Tankfüllung</option>
+                </select><br><br>
+                <input type="submit" value="Speichern"></form>
+
             <div class="indicator">
-            </div>
           </div>
         </div>
-  </div>
+      </div>
+    </div>
   </div>
 
   </section>
