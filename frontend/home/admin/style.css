@@ -150,35 +150,33 @@ nav .sidebar-button i{
   font-weight: 500;
   text-align: center;
 }
-.home-content .box .text-data-one{
+.home-content .box .underheading-one{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
 }
-.home-content .box .text-data-two{
+.home-content .box .underheading-two{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
 }
-.home-content .box .text-data-two .data-numb-1{
-  display: inline-block;
-  font-size: 15px;
-  margin-top: -6px;
-  font-weight: 500;
-  color: green;
-}
-
-
-.home-content .box .text-data-one .airtempcurrent{
+.home-content .box .underheading-two .data-numb-1{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .airhumidcurrent{
+.home-content .box .underheading-one .airtempcurrent{
+  display: inline-block;
+  font-size: 15px;
+  margin-top: -6px;
+  font-weight: 500;
+  color: green;
+}
+.home-content .box .underheading-two .airhumidcurrent{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
@@ -192,135 +190,133 @@ nav .sidebar-button i{
   font-weight: 500;
   color: red;
 }
-.home-content .box .text-data-one .floortempcurrent{
+.home-content .box .underheading-one .floortempcurrent{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .floorhumidcurrent{
+.home-content .box .underheading-two .floorhumidcurrent{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: red;
 }
-.home-content .box .text-data-one .watering-status-current{
+.home-content .box .underheading-one .watering-status-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: red;
 }
-.home-content .box .text-data-two .watering-autostart-current{
+.home-content .box .underheading-two .watering-autostart-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: grey;
 }
-.home-content .box .text-data-two .watering-autostop-current{
+.home-content .box .underheading-two .watering-autostop-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: grey;
 }
-.home-content .box .text-data-two .www-status-power-current{
+.home-content .box .underheading-two .www-status-power-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: #db2562;
 }
-.home-content .box .text-data-two .www-status-site-one-current{
+.home-content .box .underheading-two .www-status-site-one-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .www-status-site-two-current{
+.home-content .box .underheading-two .www-status-site-two-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .www-status-site-three-current{
+.home-content .box .underheading-two .www-status-site-three-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .www-status-site-four-current{
+.home-content .box .underheading-two .www-status-site-four-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: orange;
 }
-.home-content .box .text-data-two .www-status-site-five-current{
+.home-content .box .underheading-two .www-status-site-five-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-one .lightcurrent{
+.home-content .box .underheading-one .lightcurrent{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: orange;
 }
-.home-content .box .text-data-two .wattscurrent{
+.home-content .box .underheading-two .wattscurrent{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
-  color: black;
+  color: orange;
 }
-
-
-.home-content .box .text-data-two .data-numb-2{
+.home-content .box .underheading-two .data-numb-2{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: red;
 }
-.home-content .box .text-data-one .two-data-numb-1{
+.home-content .box .underheading-one .two-data-numb-1{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .two-data-numb-2{
+.home-content .box .underheading-two .two-data-numb-2{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: orange;
 }
-.home-content .box .text-data-one .three-data-numb-1{
+.home-content .box .underheading-one .three-data-numb-1{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: red;
 }
-.home-content .box .text-data-two .three-data-numb-2{
+.home-content .box .underheading-two .three-data-numb-2{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: grey;
 }
-.home-content .box .center-text-data-one{
+.home-content .box .center-underheading-one{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
@@ -328,7 +324,7 @@ nav .sidebar-button i{
   text-align: center;
   color: red;
 }
-.home-content .box .center-text-data-two{
+.home-content .box .center-underheading-two{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
@@ -366,35 +362,35 @@ nav .sidebar-button i{
   color: #db2562;
 }
 
-.home-content .box .text-data-two .four-data-numb-1{
+.home-content .box .underheading-two .four-data-numb-1{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .four-data-numb-2{
+.home-content .box .underheading-two .four-data-numb-2{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .four-data-numb-3{
+.home-content .box .underheading-two .four-data-numb-3{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .four-data-numb-4{
+.home-content .box .underheading-two .four-data-numb-4{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: orange;
 }
-.home-content .box .text-data-two .four-data-numb-5{
+.home-content .box .underheading-two .four-data-numb-5{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
@@ -663,19 +659,19 @@ nav .sidebar-button i{
   font-weight: 500;
   text-align: center;
 }
-.home-content .box .text-data-one{
+.home-content .box .underheading-one{
   display: inline-block;
   font-size: 20px;
   margin-top: -6px;
   font-weight: 500;
 }
-.home-content .box .text-data-two{
+.home-content .box .underheading-two{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
 }
-.home-content .box .text-data-one .data-numb-1{
+.home-content .box .underheading-one .data-numb-1{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
@@ -684,14 +680,14 @@ nav .sidebar-button i{
 }
 
 
-.home-content .box .text-data-one .airtempcurrent{
+.home-content .box .underheading-one .airtempcurrent{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .airhumidcurrent{
+.home-content .box .underheading-two .airhumidcurrent{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
@@ -705,144 +701,140 @@ nav .sidebar-button i{
   font-weight: 500;
   color: red;
 }
-.home-content .box .text-data-one .floortempcurrent{
+.home-content .box .underheading-one .floortempcurrent{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .floorhumidcurrent{
+.home-content .box .underheading-two .floorhumidcurrent{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: red;
 }
-.home-content .box .text-data-one .watering-status-current{
+.home-content .box .underheading-one .watering-status-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: red;
 }
-.home-content .box .text-data-two .watering-autostart-current{
+.home-content .box .underheading-two .watering-autostart-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: grey;
 }
-.home-content .box .text-data-two .watering-autostop-current{
+.home-content .box .underheading-two .watering-autostop-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: grey;
 }
-.home-content .box .text-data-two .www-status-power-current{
+.home-content .box .underheading-two .www-status-power-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: #db2562;
 }
-.home-content .box .text-data-two .www-status-site-one-current{
+.home-content .box .underheading-two .www-status-site-one-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .www-status-site-two-current{
+.home-content .box .underheading-two .www-status-site-two-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .www-status-site-three-current{
+.home-content .box .underheading-two .www-status-site-three-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .www-status-site-four-current{
+.home-content .box .underheading-two .www-status-site-four-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: orange;
 }
-.home-content .box .text-data-two .www-status-site-five-current{
+.home-content .box .underheading-two .www-status-site-five-current{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-one .lightcurrent{
+.home-content .box .underheading-one .lightcurrent{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: orange;
 }
-.home-content .box .text-data-two .wattscurrent{
+.home-content .box .underheading-two .wattscurrent{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
-  color: black;
+  color: orange;
 }
-
-
-
-
-.home-content .box .text-data-two .data-numb-2{
+.home-content .box .underheading-two .data-numb-2{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: red;
 }
-.home-content .box .text-data-one .two-data-numb-1{
+.home-content .box .underheading-one .two-data-numb-1{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .two-data-numb-2{
+.home-content .box .underheading-two .two-data-numb-2{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: orange;
 }
-.home-content .box .text-data-one .three-data-numb-1{
+.home-content .box .underheading-one .three-data-numb-1{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: red;
 }
-.home-content .box .text-data-two .three-data-numb-2{
+.home-content .box .underheading-two .three-data-numb-2{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: grey;
 }
-.home-content .box .center-text-data-one{
+.home-content .box .center-underheading-one{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: red;
 }
-.home-content .box .center-text-data-two{
+.home-content .box .center-underheading-two{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
@@ -879,35 +871,35 @@ nav .sidebar-button i{
   font-weight: 500;
   color: #db2562;
 }
-.home-content .box .text-data-two .four-data-numb-1{
+.home-content .box .underheading-two .four-data-numb-1{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .four-data-numb-2{
+.home-content .box .underheading-two .four-data-numb-2{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .four-data-numb-3{
+.home-content .box .underheading-two .four-data-numb-3{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: green;
 }
-.home-content .box .text-data-two .four-data-numb-4{
+.home-content .box .underheading-two .four-data-numb-4{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;
   font-weight: 500;
   color: orange;
 }
-.home-content .box .text-data-two .four-data-numb-5{
+.home-content .box .underheading-two .four-data-numb-5{
   display: inline-block;
   font-size: 15px;
   margin-top: -6px;

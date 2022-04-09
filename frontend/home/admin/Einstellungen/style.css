@@ -242,6 +242,13 @@ nav .profile-details i{
   margin-top: -6px;
   font-weight: 500;
 }
+.home-content .box .text-konto-infos .text-konto-3{
+  display: inline-block;
+  font-size: 11px;
+  margin-top: -6px;
+  font-weight: 500;
+  color: grey;
+}
 .home-content .box .del-konto-text{
   display: inline-block;
   font-size: 10px;
