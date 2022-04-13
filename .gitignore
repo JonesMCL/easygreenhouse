@@ -1,5 +1,6 @@
 # Own files to ignore
 backend/config/config.js
+backend/package-lock.json
 
 # Node artifact files
 node_modules/
