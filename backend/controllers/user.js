@@ -1,12 +1,12 @@
 import { response } from 'express';
 const axios = require("axios");
-let config = require('../config/config');
+let constants = require('../config/constants');
 const redis = require('redis');
 const redisScan = require('node-redis-scan');
 const client = redis.createClient({
-    host: config.REDISHOST,
-    port: config.REDISPORT,
-    password: config.REDISPWD,
+    host: constants.REDISHOST,
+    port: constants.REDISPORT,
+    password: constants.REDISPWD,
     retry_strategy: function(options) {
       if (options.error && options.error.code === "ECONNREFUSED") {
         // End reconnecting on a specific error and flush all commands with

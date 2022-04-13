@@ -37,7 +37,6 @@ app.use(cors())
 
 // Add the ApiRoutes stack to the server
 app.use('/api', ApiRoutes)
-portfolio.createValueHistory();
 
 client.on("error", (err) => {
     console.log(err);
