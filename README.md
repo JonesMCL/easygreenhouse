@@ -5,12 +5,20 @@ We provide a web application where you can see all relevant greenhouse data in a
 The system can be hosted on your own home server. Therefore we provide docker files to make the setup as easy as possible.
 
 We use the following sensors and devices:
+- Temperature and humidity sensor
 - Soil moisture sensor
-- Rasberry Pi Cam
+- Floor temperature sensor
+- Relay (5v switching voltage / 250v Stress load) (-> for a water pump)
+- Perl hose for irrigation
+- GPIO extension (for RaspberryPi)
+- Heat sink (for RaspberryPi)
+- Rasberry Pi 3b+
 
 Technology choices:
-- Redis or MariaDB version xx as a database
-- React
+- Redis version xx as a database
+- HTML
+- CSS
+- Javascript
 
 #How to get started
 
