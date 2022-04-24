@@ -1,8 +1,8 @@
 const config = {}
 
-config.REDISHOST = "hdredis.easytec.tech" //TODO UPDATE
+config.REDISHOST = "domainOfDb" //TODO UPDATE
 config.REDISPORT = 9763 //TODO UPDATE
-config.REDISPWD = "hdRed21Dock#Unraid" //TODO UPDATE
+config.REDISPWD = "samplePW" //TODO UPDATE
 config.APPLICATIONHOST = '0.0.0.0' //TODO UPDATE
 config.APPLICATIONPORT = 4000 //TODO UPDATE
 config.MONGODBHOST = "" //TODO UPDATE
