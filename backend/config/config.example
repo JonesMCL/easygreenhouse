@@ -6,9 +6,11 @@ config.REDISPORT =
 config.REDISPWD = ""
 config.APPLICATIONHOST = 'X.X.X.X' 
 config.APPLICATIONPORT = 
+config.JWT_SECRET =  ""
 
 module.exports.REDISHOST = config.REDISHOST
 module.exports.REDISPORT = config.REDISPORT
 module.exports.REDISPWD = config.REDISPWD
 module.exports.APPLICATIONHOST = config.APPLICATIONHOST
 module.exports.APPLICATIONPORT = config.APPLICATIONPORT
+module.exports.JWT_SECRET = config.JWT_SECRET
