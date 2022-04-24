@@ -1,6 +1,8 @@
 # Own files to ignore
 backend/config/config.js
 backend/package-lock.json
+weatherApiService/secret.py
+sensorService/secret.py
 
 # Node artifact files
 node_modules/

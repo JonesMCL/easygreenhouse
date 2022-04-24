@@ -28,23 +28,6 @@ const client = redis.createClient({
 });
 const scanner = new redisScan(client);
 
-  /**
- * @return "0" or "1"
- * "0", if other users have registered before, "1", if this is the first registration
- */
-async function checkFirstRegistration () {
-  let key = "admin:Users";
-
-  client.exists(key, (err, reply) => {
-    if (reply === 1) {
-      return 0; //other users already registered
-    }
-    else{
-      return 1; //first registration
-    }
-  });
-};
-
 /**
  * @param req contains a userid, a password, an email, and a role
  * @return JSON object with a status code, a message, and the body of the request or an error
