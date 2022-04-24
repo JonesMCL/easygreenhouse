@@ -1,6 +1,6 @@
 import { response } from 'express';
 const axios = require("axios");
-let constants = require('../config/constants');
+let constants = require('../config/config');
 const redis = require('redis');
 const redisScan = require('node-redis-scan');
 const client = redis.createClient({
@@ -27,49 +27,6 @@ const client = redis.createClient({
     }
 });
 const scanner = new redisScan(client);
-
-/**
- * @param req contains a userid, a password, and an email
- * @return JSON object with a status code, a message, and the body of the request or an error
- * Add a new user with a userid, a password, an email, the default role "0", 
- * or the admin role "1" if no user has registered in the system before
- */
-//BUG: We only check if Userid exists, not if mail address is already in use 
-async function addUser (req, res) {
-    const newUser = req.body;
-    let uid = JSON.parse(JSON.stringify(req.body.uid));
-    let pwd = JSON.parse(JSON.stringify(req.body.pwd));
-    let email = JSON.parse(JSON.stringify(req.body.email));
-    let key = uid + ":Users";
-
-    client.exists(key, (err, reply) => {
-      if (reply === 1) {
-        return res.json({ status: 400, message: '0', newUser }); //user exists already
-      }
-      if(checkFirstRegistration() == 0) { //other users registered before 
-        // Add New User
-        client.hset(key, "pwd", pwd, "email", email, "role", "0", (error, result) => {
-          if (error) {
-            return res.json({ status: 400, message: 'Could not add new user to database', error });
-          }
-          return res.json({
-            result, status: 200, message: '1', newUser //user created successfully
-          });
-        });
-      }
-      else if (checkFirstRegistration() == 1){ //first registration
-        // Add New User
-        client.hset(key, "pwd", pwd, "email", email, "role", "1", (error, result) => {
-          if (error) {
-            return res.json({ status: 400, message: 'Could not add new user to database', error });
-          }
-          return res.json({
-            result, status: 200, message: '1', newUser //user created successfully
-          });
-        });
-      }
-    });
-  };
 
   /**
  * @return "0" or "1"
@@ -176,7 +133,6 @@ async function deleteUser (req, res) {
 };
 
 export default {
-    addUser,
     checkFirstRegistration,
     updateUser,
     getUser,

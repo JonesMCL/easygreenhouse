@@ -8,7 +8,7 @@ let bodyParser = require('body-parser');
 app.use(bodyParser.json());
 import ApiRoutes from './routes';
 
-let constants = require('./config/constants');
+let constants = require('./config/config.js');
 const client = redis.createClient({
     host: constants.REDISHOST,
     port: constants.REDISPORT,
