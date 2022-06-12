@@ -15,7 +15,7 @@ We use the following sensors and devices:
 - Rasberry Pi 3b+
 
 Technology choices:
-- Redis version xx as a database
+- MariaDB
 - HTML
 - CSS
 - Javascript
