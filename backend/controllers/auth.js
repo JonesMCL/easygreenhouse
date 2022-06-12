@@ -3,31 +3,35 @@ let jwt = require('jsonwebtoken');
 let bcrypt = require("bcryptjs");
 let config = require('../config/config');
 let helpers = require('../helpers/helpers')
-const redis = require('redis');
-const redisScan = require('node-redis-scan');
-const client = redis.createClient({
-    host: config.REDISHOST,
-    port: config.REDISPORT,
-    password: config.REDISPWD,
-    retry_strategy: function(options) {
-      if (options.error && options.error.code === "ECONNREFUSED") {
-        // End reconnecting on a specific error and flush all commands with
-        // an individual error
-        return new Error("The server refused the connection");
-      }
-      if (options.total_retry_time > 1000 * 60 * 60) {
-        // End reconnecting after a specific timeout and flush all commands
-        // with an individual error
-        return new Error("Retry time exhausted");
-      }
-      if (options.attempt > 10) {
-        // End reconnecting with built in error
-        return undefined;
-      }
-      // reconnect after
-      return Math.min(options.attempt * 100, 3000);
-    }
+const mariadb = require('mariadb');
+
+const mariaDBpool = mariadb.createPool({
+    host: config.MARIADBHOST, 
+    user: config.MARIADBUSER, 
+    port: config.MARIADBPORT,
+    password: config.MARIADBPWD,
+    database: config.MARIADBDATABASE,
+    connectionLimit: 5
 });
+
+// Beispiel für Conncetion zu MariaDB öffnen, query machen und schließen 
+async function asyncFunction() {
+  let connection;
+  try {
+	connection = await mariaDBpool.getConnection();
+	const rows = await connection.query("SELECT * FROM soilMoist");
+	console.log(rows); //[ {val: 1}, meta: ... ]
+	//const res = await connection.query("INSERT INTO myTable value (?, ?)", [1, "mariadb"]);
+	//console.log(res); // { affectedRows: 1, insertId: 1, warningStatus: 0 }
+
+  } catch (err) {
+	throw err;
+  } finally {
+	if (connection) return connection.end();
+  }
+}
+
+
 const jwt_secret = config.JWT_SECRET;
 const jwt_expiration = 60 * 10;
 const jwt_refresh_expiration = 60 * 60 * 24 * 30;

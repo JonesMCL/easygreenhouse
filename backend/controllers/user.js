@@ -1,32 +1,32 @@
 import { response } from 'express';
 const axios = require("axios");
-let constants = require('../config/config');
-const redis = require('redis');
-const redisScan = require('node-redis-scan');
-const client = redis.createClient({
-    host: constants.REDISHOST,
-    port: constants.REDISPORT,
-    password: constants.REDISPWD,
-    retry_strategy: function(options) {
-      if (options.error && options.error.code === "ECONNREFUSED") {
-        // End reconnecting on a specific error and flush all commands with
-        // an individual error
-        return new Error("The server refused the connection");
-      }
-      if (options.total_retry_time > 1000 * 60 * 60) {
-        // End reconnecting after a specific timeout and flush all commands
-        // with an individual error
-        return new Error("Retry time exhausted");
-      }
-      if (options.attempt > 10) {
-        // End reconnecting with built in error
-        return undefined;
-      }
-      // reconnect after
-      return Math.min(options.attempt * 100, 3000);
-    }
+let config = require('../config/config');
+const mariadb = require('mariadb');
+
+const mariaDBpool = mariadb.createPool({
+  host: config.MARIADBHOST, 
+  user: config.MARIADBUSER, 
+  port: config.MARIADBPORT,
+  password: config.MARIADBPWD,
+  database: config.MARIADBDATABASE,
+  connectionLimit: 5
 });
-const scanner = new redisScan(client);
+// Beispiel für Connection zu DB und schließen -> Einbauen in Funktionen 
+async function asyncFunction() {
+  let connection;
+  try {
+	connection = await mariaDBpool.getConnection();
+	const rows = await connection.query("SELECT * FROM soilMoist");
+	console.log(rows); //[ {val: 1}, meta: ... ]
+	//const res = await connection.query("INSERT INTO myTable value (?, ?)", [1, "mariadb"]);
+	//console.log(res); // { affectedRows: 1, insertId: 1, warningStatus: 0 }
+
+  } catch (err) {
+	throw err;
+  } finally {
+	if (connection) return connection.end();
+  }
+}
 
 /**
  * @param req contains a userid, a password, an email, and a role
@@ -116,7 +116,6 @@ async function deleteUser (req, res) {
 };
 
 export default {
-    checkFirstRegistration,
     updateUser,
     getUser,
     deleteUser
