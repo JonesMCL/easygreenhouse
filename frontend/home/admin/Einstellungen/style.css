@@ -230,6 +230,10 @@ nav .profile-details i{
 .home-content .box .text-rechte .recht3{
   color: rgb(7, 233, 7);
 }
+.home-content .box .text-rechte .text-under-user-management{
+  color: red;
+  font-size: 10px;
+}
 .home-content .box .text-konto-infos{
   display: inline-block;
   font-size: 15px;

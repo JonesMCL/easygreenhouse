@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <title>Easy Greenhouse - Dashboard</title>
+  <title>Easy Greenhouse - User Management</title>
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -37,12 +36,12 @@
           <span class="links_name">Status</span>
         </a>
       </li>
-       <li>
-          <a href="/frontend/home/admin/Boden/">
-            <i class='bx bxs-layer'></i>
-              <span class="links_name">Boden</span>
-            </a>
-      </li>
+      <li>
+        <a href="/frontend/home/admin/Boden/">
+          <i class='bx bxs-layer' style='color:#ffffff'  ></i>
+            <span class="links_name">Boden</span>
+          </a>
+    </li>
       <li>
         <a href="/frontend/home/admin/Luft/">
           <i class='bx bx-wind'></i>
@@ -62,14 +61,14 @@
             </a>
       </li>
       <li>
-        <a href="/frontend/home/admin/Log" class="active">
+        <a href="/frontend/home/admin/Log">
           <i class='bx bx-error'></i>
           <span class="links_name">Log</span>
         </a>
       </li>
       <li>
         <a href="/frontend/home/admin/Einstellungen/">
-          <i class='bx bx-cog'></i>
+          <i class='bx bx-cog' ></i>
           <span class="links_name">Einstellungen</span>
         </a>
       </li>
@@ -83,7 +82,7 @@
       <li>
         <li class="Datenschutz">
         <a href="/frontend/home/Datenschutz/">
-          <i class='bx bx-book-alt'></i>
+          <i class='bx bx-book-alt' style='color:#ffffff'  ></i>
           <span class="links_name">Datenschutz</span>
         </a></li>
       </li>
@@ -107,19 +106,10 @@
         </ul></header>
     </nav>
   <!--main part of the dashboard-->
-  <div class="home-content">
-    <div class="overview-boxes">
-      <div class="box">
-        <div class="right-side">
-          <div class="box-topic">Log</div>
-          <div id="log-data"></div>
-           <div class="indicator">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
- </section>
+  
+<div id="dont-perm">You don't have permission to view this data.<br>Only admins can see this.</div>
+
+  </section>
 <script>
 let sidebar = document.querySelector(".sidebar");
 let sidebarBtn = document.querySelector(".sidebarBtn");

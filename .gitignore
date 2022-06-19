@@ -1,4 +1,5 @@
 # Own files to ignore
+backend/config/constants.js
 backend/config/config.js
 backend/package-lock.json
 

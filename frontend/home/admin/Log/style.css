@@ -210,6 +210,10 @@ nav .profile-details i{
   font-size: 30px;
   font-weight: 500;
 }
+#log-data{
+  font-size: 20px;
+  font-weight: 500;
+}
 .home-content .box .data-1-log-1{
   display: inline-block;
   font-size: 15px;
@@ -732,6 +736,10 @@ nav .profile-details i{
 }
 .overview-boxes .box-topic{
   font-size: 30px;
+  font-weight: 500;
+}
+#log-data{
+  font-size: 20px;
   font-weight: 500;
 }
 .home-content .box .data-1-log-1{
