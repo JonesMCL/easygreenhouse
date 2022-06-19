@@ -1,4 +1,3 @@
-finnhub-python==2.4.0
 Flask==1.1.2
 Flask-RESTful==0.3.8
 redis==3.5.3
