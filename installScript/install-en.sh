@@ -64,7 +64,7 @@ pip install smbus
 git clone https://github.com/adafruit/Adafruit_Python_ADS1x15
 cd Adafruit_Python_ADS1x15 && sudo python3 setup.py install
 
-
+#
 # install Modules - 
 echo "Install modules for xxxxxxxxxx.."
 

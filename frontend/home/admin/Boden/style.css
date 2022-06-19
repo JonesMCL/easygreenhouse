@@ -226,38 +226,38 @@ nav .profile-details i{
   font-size: 20px;
   font-weight: 500;
 }
-.overview-boxes .box-text-1{
+#box-text-1{
   font-size: 15px;
   font-weight: 500;
 }
-.overview-boxes .box-text-1 .numb{
+#box-text-1 .numb{
   font-size: 15px;
   font-weight: 500;
   color: green;
 }
-.overview-boxes .box-text-2{
+#box-text-2{
   font-size: 15px;
   font-weight: 500;
 }
-.overview-boxes .box-text-2 .numb{
+#box-text-2 .numb{
   font-size: 15px;
   font-weight: 500;
   color: yellowgreen;
 }
-.overview-boxes .box-text-3{
+#box-text-3{
   font-size: 15px;
   font-weight: 500;
 }
-.overview-boxes .box-text-3 .numb{
+#box-text-3 .numb{
   font-size: 15px;
   font-weight: 500;
   color: orangered;
 }
-.overview-boxes .box-text-4{
+#box-text-4{
   font-size: 15px;
   font-weight: 500;
 }
-.overview-boxes .box-text-4 .numb{
+#box-text-4 .numb{
   font-size: 15px;
   font-weight: 500;
   color: green;
@@ -633,38 +633,38 @@ nav .profile-details i{
   font-size: 30px;
   font-weight: 500;
 }
-.overview-boxes .box-text-1{
+#box-text-1{
   font-size: 20px;
   font-weight: 500;
 }
-.overview-boxes .box-text-1 .numb{
+#box-text-1 .numb{
   font-size: 20px;
   font-weight: 500;
   color: green;
 }
-.overview-boxes .box-text-2{
+#box-text-2{
   font-size: 20px;
   font-weight: 500;
 }
-.overview-boxes .box-text-2 .numb{
+#box-text-2 .numb{
   font-size: 20px;
   font-weight: 500;
   color: yellowgreen;
 }
-.overview-boxes .box-text-3{
+#box-text-3{
   font-size: 20px;
   font-weight: 500;
 }
-.overview-boxes .box-text-3 .numb{
+#box-text-3 .numb{
   font-size: 20px;
   font-weight: 500;
   color: orangered;
 }
-.overview-boxes .box-text-4{
+#box-text-4{
   font-size: 20px;
   font-weight: 500;
 }
-.overview-boxes .box-text-4 .numb{
+#box-text-4 .numb{
   font-size: 20px;
   font-weight: 500;
   color: green;

@@ -1,9 +1,13 @@
 <!DOCTYPE html>
+<!-- Coding by Easy Tec | easytec.tech -->
 <html lang="en" dir="ltr">
   <title>Easy Greenhouse - Dashboard</title>
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="weatherdata.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -15,7 +19,7 @@
         <a href="/frontend/home/" class="logo-1">EASY</a><br>
         <a href="/frontend/home/" class="logo-2">GREEN</a>
         <a href="/frontend/home/" class="logo-3">HOUSE</a>
-        </div>
+      </div>
     </div>
     <ul class="nav-links">
       <li>
@@ -36,12 +40,12 @@
           <span class="links_name">Status</span>
         </a>
       </li>
-      <li>
-        <a href="/frontend/home/admin/Boden/">
-          <i class='bx bxs-layer' style='color:#ffffff'  ></i>
-            <span class="links_name">Boden</span>
-          </a>
-    </li>
+       <li>
+          <a href="/frontend/home/admin/Boden/">
+            <i class='bx bxs-layer'></i>
+              <span class="links_name">Boden</span>
+            </a>
+      </li>
       <li>
         <a href="/frontend/home/admin/Luft/">
           <i class='bx bx-wind'></i>
@@ -68,7 +72,7 @@
       </li>
       <li>
         <a href="/frontend/home/admin/Einstellungen/">
-          <i class='bx bx-cog' ></i>
+          <i class='bx bx-cog'></i>
           <span class="links_name">Einstellungen</span>
         </a>
       </li>
@@ -82,7 +86,7 @@
       <li>
         <li class="Datenschutz">
         <a href="/frontend/home/Datenschutz/">
-          <i class='bx bx-book-alt' style='color:#ffffff'  ></i>
+          <i class='bx bx-book-alt'></i>
           <span class="links_name">Datenschutz</span>
         </a></li>
       </li>
@@ -106,12 +110,67 @@
         </ul></header>
     </nav>
   <!--main part of the dashboard-->
-  <head>
-<body>
-<div id="placeholder">No data availible!<br>This Page is currently in Maintenance!<br>An api will be integrated here soon.</div>
 
-</section>
-<script>
+    <div class="home-content">
+      <div class="overview-boxes">
+        <div class="box">
+          <div class="right-side">
+            <div class="box-headline">Luft</div><br>
+            <div class="underheading-two">Lufttemperatur:&nbsp;&nbsp;&nbsp;&nbsp;<span id="Airtemp">--</span><span> °C</span></div><br>
+            <div class="underheading-two">Luftfeuchtigkeit:&nbsp;&nbsp;&nbsp;&nbsp;<span id="Humidity">--</span><span> %</span></div>
+            <div class="indicator">
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-headline">Wind</div><br>
+            <div class="underheading-two">Windgeschwindigkeit:&nbsp;&nbsp;&nbsp;&nbsp;<span id="WindSpeed">--</span><span> km/h</span></div>
+            <div class="underheading-two">Windrichtung:&nbsp;&nbsp;&nbsp;&nbsp;<span id="WindDir">--</span></div>
+            <div class="indicator">
+            </div>
+          </div>
+        </div>
+<div class="box">
+            <div class="right-side">
+              <div class="box-headline">Luftdruck</div><br>
+              <div class="underheading-two">Luftdruck:&nbsp;&nbsp;&nbsp;&nbsp;<span id="Pressure">--</span><span> HPa</span></div>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+        </div>
+<!--new line of data--> 
+        <div class="overview-boxes">
+          <div class="box">
+            <div class="right-side">
+              <div class="box-headline">Regen</div><br>
+              <div class="underheading-two">Niederschlag:&nbsp;&nbsp;&nbsp;<span id="PrecipTotal">--</span><span> mm</span></div>
+              <div class="underheading-two">Niederschlagsmenge:&nbsp;&nbsp;&nbsp;<span id="PrecipRate">--</span><span> mm/hour</span></div>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-headline">UV-index</div><br>
+              <div class="underheading-two">Aktuell:&nbsp;&nbsp;&nbsp;<span id="UV">--</span></div>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-headline">Sonneneinstrahlung</div><br>
+              <div class="underheading-two">Aktuell:&nbsp;&nbsp;&nbsp;<span id="SolarRadiation">--</span><span> watt/m²</span></div>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <script>
 let sidebar = document.querySelector(".sidebar");
 let sidebarBtn = document.querySelector(".sidebarBtn");
 sidebarBtn.onclick = function() {
@@ -121,6 +180,6 @@ sidebarBtn.onclick = function() {
 }else
   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
 }
-</script>
+ </script>
 </body>
 </html>

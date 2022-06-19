@@ -120,11 +120,15 @@
       </div>
       <div class="box">
         <div class="right-side">
-          <div class="box-topic"><i class='bx bxs-user'></i></i>&nbsp;&nbsp;Rechte</div>
-          <div class="text-rechte"><br>
+          <div class="box-topic"><i class='bx bxs-user'></i></i>&nbsp;&nbsp;Benutzerverwaltung</div>
+          <div class="box-topic">Rechte</div>
+          <div class="text-rechte">
             <span class="recht1">standard</span><i class='bx bx-check' style='color:#0000e1'  ></i><br>
-            <span class="recht2">advanced</span><i class='bx bx-check' style='color:#40e0d0'  ></i><br>
-            <span class="recht3">admin</span><i class='bx bx-check' style='color:#07df07'  ></i><br>
+          </div><br>
+          <div class="box-topic">Benutzerverwaltung</div>
+          <div class="text-rechte">
+            <div><button onclick="window.location.href = '/frontend/home/admin/user-management/';">Benutzerverwaltung</button></div>
+            <span class="text-under-user-management">kann nur von admins genutzt werden!</span><br>
           </div>
           <div class="indicator">
           </div>
@@ -137,6 +141,7 @@
             <span class="text-konto-1">Konto erstellt am:&nbsp;&nbsp;12.02.2022</span><br>
             <span class="text-konto-2">aktuell angemeldete Geräte:&nbsp;&nbsp;3</span><br>
             <span class="text-konto-3">aktuelle Version dieser Website:&nbsp;&nbsp;V 1.1.8</span>
+            <div><button onclick="window.location.href = '/frontend/home/admin/updater/';">nach Updates suchen</button></div>
           </div>
           <div class="indicator">
           </div>
@@ -159,7 +164,7 @@
       <div class="box">
         <div class="right-side">
           <div class="box-topic"><i class='bx bxs-user-x'></i>&nbsp;&nbsp;Konto löschen</div>
-          <div class="button-neu-einrichten"><button onclick="alert('With this action all your data on this website will be deleted!')">Konto unwiederruflich löschen</button></div>
+          <div class="button-neu-einrichten"><button href="#" onclick="return confirm('With this action all your data on this website will be deleted! Click OK to continue.');">Konto unwiederruflich löschen</button></div>
           <div class="del-konto-text">So werden alle deine Daten auf dieser Website unwiederruflich gelöscht!</div>
           <div class="indicator">
           </div>
@@ -168,7 +173,7 @@
       <div class="box">
         <div class="right-side">
           <div class="box-topic"><i class='bx bxs-message-error'></i>&nbsp;&nbsp;Fehler melden</div>
-          <div class="button-neu-einrichten"><button onclick="window.location.href = '/frontend/home/report-bug/';">FEHLER MELDEN</button></div>
+          <div class="button-neu-einrichten"> <button class="btn btn-success" onclick=" window.open('https://github.com/JonesMCL/easygreenhouse/issues','_blank')">Fehler Melden</button></div>
               </div>
             </div>
           </div>
