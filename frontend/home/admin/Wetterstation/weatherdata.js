@@ -26,7 +26,7 @@ function loadAirHumidity(){
         Humidity = response.data.result;
         document.getElementById('Humidity').innerHTML = Humidity;
     })
-    setTimeout("loadAirhumid();",5000);
+    setTimeout("loadAirHumidity();",5000);
 }
 function loadWindSpeed(){
     let WindSpeed;
