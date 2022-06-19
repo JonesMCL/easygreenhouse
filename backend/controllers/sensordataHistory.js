@@ -11,31 +11,42 @@ const mariaDBpool = mariadb.createPool({
     connectionLimit: 5
 });
 
-/*
-async function getAverageAirtemp (req, res) {
+
+async function getAverageSoiltemp (req, res) {
 
     let connection;
     try {
-        connection = await mariaDBpool.getConnection(); 
-        const result = await connection.query("SELECT messwert FROM airTemp ORDER BY id DESC LIMIT 2");
-        console.log(result); //[ {val: 1}, meta: ... ]
-        let average = (parseFloat(result[0].messwert) + parseFloat(result[1].messwert)) / 2;
-        console.log(average.toFixed(1));
-        //TODO auch json response wenn nichts gefunden,...
+        connection = await mariaDBpool.getConnection();
+        const result = await connection.query("SELECT messwert FROM soilTemp WHERE timestamp> now() - INTERVAL 12 month");
+        let resultLength = Object.keys(result).length;
+        let counter = 0;
+
+        for (let i = 0; i < resultLength -1; i++) {
+            counter += parseFloat(result[i].messwert);
+        }
+
+        let average = counter / (resultLength - 1);
         return res.json({
-            status: 200, message: '1', result: average.toFixed(1) // result successfully retrieved
+            status: 200, message: '1', result: average.toFixed(1)
           });
-        
-        //const res = await connection.query("INSERT INTO myTable value (?, ?)", [1, "mariadb"]);
-        //console.log(res); // { affectedRows: 1, insertId: 1, warningStatus: 0 }
 
     } catch (err) {
-        throw err;
+        return res.json({ status: 400, message: 'Could not fetch average soiltemp from database!' });
     } finally {
         if (connection) return connection.end();
     }
-    
-  };*/
+};
+
+/*
+    getAverageSoiltempMonthly,
+    getAverageAirtempMonthly,
+    getAverageAirtemp,
+    getAverageSoilMoistMonthly,
+    getAverageSoilMoist,
+    getAverageHumidityMonthly,
+    getAverageHumidity
+    */
 
 export default {
+    getAverageSoiltemp
 }
