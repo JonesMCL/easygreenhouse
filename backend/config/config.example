@@ -1,14 +1,29 @@
 // Use this example to create your own config.js
 const config = {}
 
-config.REDISHOST = ""
-config.REDISPORT = 
-config.REDISPWD = ""
-config.APPLICATIONHOST = 'X.X.X.X' 
+config.MARIADBHOST = ""
+config.MARIADBUSER = ""
+config.MARIADBDATABASE = ""
+config.MARIADBPORT =  
+config.MARIADBPWD = "" 
+config.RASPIHOST = ""
+config.RASPIUSER = ""
+config.RASPIPWD = ""
+config.APPLICATIONHOST = ""
 config.APPLICATIONPORT = 
+config.JWT_SECRET =  ""
+config.weatherAPIKey = ""
+config.STATION_ID = ""
 
-module.exports.REDISHOST = config.REDISHOST
-module.exports.REDISPORT = config.REDISPORT
-module.exports.REDISPWD = config.REDISPWD
+module.exports.MARIADBHOST = config.MARIADBHOST
+module.exports.MARIADBUSER = config.MARIADBUSER
+module.exports.MARIADBDATABASE = config.MARIADBDATABASE
+module.exports.MARIADBPORT = config.MARIADBPORT
+module.exports.MARIADBPWD = config.MARIADBPWD
+module.exports.RASPIHOST = config.RASPIHOST
+module.exports.RASPIUSER = config.RASPIUSER
+module.exports.RASPIPWD = config.RASPIPWD
 module.exports.APPLICATIONHOST = config.APPLICATIONHOST
 module.exports.APPLICATIONPORT = config.APPLICATIONPORT
+module.exports.JWT_SECRET = config.JWT_SECRET
+module.exports.STATION_ID = config.STATION_ID
