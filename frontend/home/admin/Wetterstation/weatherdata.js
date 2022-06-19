@@ -78,7 +78,7 @@ function loadUV(){
     axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getUV")
     .then((response)=>{
         UV = response.data.result;
-        document.getElementById('airPressureoutdoorcurrent').innerHTML = UV;
+        document.getElementById('UV').innerHTML = UV;
     })
     setTimeout("loadUV();",5000);
 }
