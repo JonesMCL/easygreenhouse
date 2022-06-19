@@ -1,92 +1,32 @@
 import { response } from 'express';
 const axios = require("axios");
-let constants = require('../config/constants');
-const redis = require('redis');
-const redisScan = require('node-redis-scan');
-const client = redis.createClient({
-    host: constants.REDISHOST,
-    port: constants.REDISPORT,
-    password: constants.REDISPWD,
-    retry_strategy: function(options) {
-      if (options.error && options.error.code === "ECONNREFUSED") {
-        // End reconnecting on a specific error and flush all commands with
-        // an individual error
-        return new Error("The server refused the connection");
-      }
-      if (options.total_retry_time > 1000 * 60 * 60) {
-        // End reconnecting after a specific timeout and flush all commands
-        // with an individual error
-        return new Error("Retry time exhausted");
-      }
-      if (options.attempt > 10) {
-        // End reconnecting with built in error
-        return undefined;
-      }
-      // reconnect after
-      return Math.min(options.attempt * 100, 3000);
-    }
+let config = require('../config/config');
+const mariadb = require('mariadb');
+
+const mariaDBpool = mariadb.createPool({
+  host: config.MARIADBHOST, 
+  user: config.MARIADBUSER, 
+  port: config.MARIADBPORT,
+  password: config.MARIADBPWD,
+  database: config.MARIADBDATABASE,
+  connectionLimit: 5
 });
-const scanner = new redisScan(client);
+// Beispiel für Connection zu DB und schließen -> Einbauen in Funktionen 
+async function asyncFunction() {
+  let connection;
+  try {
+	connection = await mariaDBpool.getConnection();
+	const rows = await connection.query("SELECT * FROM soilMoist");
+	console.log(rows); //[ {val: 1}, meta: ... ]
+	//const res = await connection.query("INSERT INTO myTable value (?, ?)", [1, "mariadb"]);
+	//console.log(res); // { affectedRows: 1, insertId: 1, warningStatus: 0 }
 
-/**
- * @param req contains a userid, a password, and an email
- * @return JSON object with a status code, a message, and the body of the request or an error
- * Add a new user with a userid, a password, an email, the default role "0", 
- * or the admin role "1" if no user has registered in the system before
- */
-//BUG: We only check if Userid exists, not if mail address is already in use 
-async function addUser (req, res) {
-    const newUser = req.body;
-    let uid = JSON.parse(JSON.stringify(req.body.uid));
-    let pwd = JSON.parse(JSON.stringify(req.body.pwd));
-    let email = JSON.parse(JSON.stringify(req.body.email));
-    let key = uid + ":Users";
-
-    client.exists(key, (err, reply) => {
-      if (reply === 1) {
-        return res.json({ status: 400, message: '0', newUser }); //user exists already
-      }
-      if(checkFirstRegistration() == 0) { //other users registered before 
-        // Add New User
-        client.hset(key, "pwd", pwd, "email", email, "role", "0", (error, result) => {
-          if (error) {
-            return res.json({ status: 400, message: 'Could not add new user to database', error });
-          }
-          return res.json({
-            result, status: 200, message: '1', newUser //user created successfully
-          });
-        });
-      }
-      else if (checkFirstRegistration() == 1){ //first registration
-        // Add New User
-        client.hset(key, "pwd", pwd, "email", email, "role", "1", (error, result) => {
-          if (error) {
-            return res.json({ status: 400, message: 'Could not add new user to database', error });
-          }
-          return res.json({
-            result, status: 200, message: '1', newUser //user created successfully
-          });
-        });
-      }
-    });
-  };
-
-  /**
- * @return "0" or "1"
- * "0", if other users have registered before, "1", if this is the first registration
- */
-async function checkFirstRegistration () {
-  let key = "admin:Users";
-
-  client.exists(key, (err, reply) => {
-    if (reply === 1) {
-      return 0; //other users already registered
-    }
-    else{
-      return 1; //first registration
-    }
-  });
-};
+  } catch (err) {
+	throw err;
+  } finally {
+	if (connection) return connection.end();
+  }
+}
 
 /**
  * @param req contains a userid, a password, an email, and a role
@@ -176,8 +116,6 @@ async function deleteUser (req, res) {
 };
 
 export default {
-    addUser,
-    checkFirstRegistration,
     updateUser,
     getUser,
     deleteUser
