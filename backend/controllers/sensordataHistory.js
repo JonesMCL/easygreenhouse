@@ -1,6 +1,7 @@
 const axios = require("axios");
 let config = require('../config/config');
 const mariadb = require('mariadb');
+import helpers from '../helpers/helpers.js'
 
 const mariaDBpool = mariadb.createPool({
     host: config.MARIADBHOST, 
@@ -26,9 +27,17 @@ async function getAverageSoiltemp (req, res) {
         }
 
         let average = counter / (resultLength - 1);
+        let fixedAverage = average.toFixed(1);
+        let color = await helpers.colormapTemp(fixedAverage);
+
+        let answer = {
+            "value": fixedAverage + "°C",
+            "color": color
+        }
+
         return res.json({
-            status: 200, message: '1', result: average.toFixed(1)
-          });
+            status: 200, message: '1', result: JSON.stringify(answer)
+        });
 
     } catch (err) {
         return res.json({ status: 400, message: 'Could not fetch average soil temperature from database!' });
@@ -52,9 +61,17 @@ async function getAverageAirtemp (req, res) {
         }
 
         let average = counter / (resultLength - 1);
+        let fixedAverage = average.toFixed(1);
+        let color = await helpers.colormapTemp(fixedAverage);
+  
+        let answer = {
+            "value": fixedAverage + "°C",
+            "color": color
+        }
+  
         return res.json({
-            status: 200, message: '1', result: average.toFixed(1)
-          });
+            status: 200, message: '1', result: JSON.stringify(answer)
+        });
 
     } catch (err) {
         return res.json({ status: 400, message: 'Could not fetch average air temperature from database!' });
@@ -78,9 +95,17 @@ async function getAverageSoilMoist (req, res) {
         }
 
         let average = counter / (resultLength - 1);
+        let fixedAverage = average.toFixed(1);
+        let color = await helpers.colormapMoisture(fixedAverage);
+      
+        let answer = {
+            "value": fixedAverage + "%",
+            "color": color
+        }
+      
         return res.json({
-            status: 200, message: '1', result: average.toFixed(1)
-          });
+            status: 200, message: '1', result: JSON.stringify(answer)
+        });
 
     } catch (err) {
         return res.json({ status: 400, message: 'Could not fetch average soil moist from database!' });
@@ -104,9 +129,17 @@ async function getAverageHumidity (req, res) {
         }
 
         let average = counter / (resultLength - 1);
+        let fixedAverage = average.toFixed(1);
+        let color = await helpers.colormapMoisture(fixedAverage);
+      
+        let answer = {
+            "value": fixedAverage + "%",
+            "color": color
+        }
+      
         return res.json({
-            status: 200, message: '1', result: average.toFixed(1)
-          });
+            status: 200, message: '1', result: JSON.stringify(answer)
+        });
 
     } catch (err) {
         return res.json({ status: 400, message: 'Could not fetch average humidity from database!' });

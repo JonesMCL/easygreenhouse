@@ -8,11 +8,18 @@ let apiCall = "https://api.weather.com/v2/pws/observations/current?stationId=" +
 async function getAirtemp (req, res) {
 
     axios.get(apiCall).then(
-        (response) => {
+        async (response) => {
             let temp = response.data.observations[0].metric.temp;
+            let color = await helpers.colormapTemp(temp);
+        
+            let answer = {
+                "value": temp + "°C",
+                "color": color
+            }
+        
             return res.json({
-                status: 200, message: '1', result: temp
-              });
+                status: 200, message: '1', result: JSON.stringify(answer)
+            });
         },
         (error) => {
           return res.json({ status: 400, message: 'Could not fetch airtemp from weather api!', error });
@@ -24,11 +31,18 @@ async function getAirtemp (req, res) {
 async function getHumidity (req, res) {
 
     axios.get(apiCall).then(
-        (response) => {
+        async (response) => {
             let humidity = response.data.observations[0].humidity;
+            let color = await helpers.colormapMoisture(humidity);
+        
+            let answer = {
+                "value": humidity + "%",
+                "color": color
+            }
+        
             return res.json({
-                status: 200, message: '1', result: humidity
-              });
+                status: 200, message: '1', result: JSON.stringify(answer)
+            });
         },
         (error) => {
           return res.json({ status: 400, message: 'Could not fetch humidity from weather api!', error });
@@ -121,11 +135,20 @@ async function getPrecipRate (req, res) {
 async function getUV (req, res) {
 
     axios.get(apiCall).then(
-        (response) => {
+        async (response) => {
             let uv = response.data.observations[0].uv;
+            let color = await helpers.colormapUV(uv);
+            console.log("uv: " + uv);
+            console.log("color: " + color);
+        
+            let answer = {
+                "value": uv,
+                "color": color
+            }
+        
             return res.json({
-                status: 200, message: '1', result: uv
-              });
+                status: 200, message: '1', result: JSON.stringify(answer)
+            });
         },
         (error) => {
           return res.json({ status: 400, message: 'Could not fetch uv from weather api!', error });
@@ -137,11 +160,20 @@ async function getUV (req, res) {
 async function getSolarRadiation (req, res) {
 
     axios.get(apiCall).then(
-        (response) => {
+        async (response) => {
             let solarRadiation = response.data.observations[0].solarRadiation;
+            let color = await helpers.colormapSolarRadiation(solarRadiation);
+            console.log("solarRadiation: " + solarRadiation);
+            console.log("color: " + color);
+        
+            let answer = {
+                "value": solarRadiation + "watt/m^2",
+                "color": color
+            }
+        
             return res.json({
-                status: 200, message: '1', result: solarRadiation
-              });
+                status: 200, message: '1', result: JSON.stringify(answer)
+            });
         },
         (error) => {
           return res.json({ status: 400, message: 'Could not fetch solarRadiation from weather api!', error });
