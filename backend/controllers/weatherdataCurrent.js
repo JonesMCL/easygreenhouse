@@ -1,5 +1,6 @@
 const axios = require("axios");
 let config = require('../config/config');
+import helpers from '../helpers/helpers.js'
 
 let apiCall = "https://api.weather.com/v2/pws/observations/current?stationId=" + config.STATION_ID + "&numericPrecision=decimal&format=json&units=m&apiKey=" + config.WEATHER_API_KEY
 
@@ -55,10 +56,11 @@ async function getWindSpeed (req, res) {
 async function getWindDir(req, res) {
 
     axios.get(apiCall).then(
-        (response) => {
+        async (response) => {
             let winddir = response.data.observations[0].winddir;
+            let winddirCompass = await helpers.degToCompass(winddir);
             return res.json({
-                status: 200, message: '1', result: winddir
+                status: 200, message: '1', result: winddirCompass
               });
         },
         (error) => {

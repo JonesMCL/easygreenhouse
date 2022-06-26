@@ -15,6 +15,19 @@ async function checkFirstRegistration () {
     });
 };
 
+function degToCompass(num){
+    let val = parseInt((num/22.5)+.5);
+    let arr = ['N','NNE','NE','ENE','E','ESE', 'SE', 'SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+    let res = arr[(val % 16)];
+      
+    return new Promise((resolve,reject)=>{
+        resolve(res);
+        reject(new Error("Could not transform winddirection from degree to compass"));
+    });
+};
+
+
 export default {
-    checkFirstRegistration
+    checkFirstRegistration,
+    degToCompass
 }
