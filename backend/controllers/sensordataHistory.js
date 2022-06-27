@@ -1,7 +1,7 @@
 const axios = require("axios");
 let config = require('../config/config');
 const mariadb = require('mariadb');
-import helpers from '../helpers/helpers.js'
+import colormaps from '../helpers/colormaps.js'
 
 const mariaDBpool = mariadb.createPool({
     host: config.MARIADBHOST, 
@@ -28,7 +28,7 @@ async function getAverageSoiltemp (req, res) {
 
         let average = counter / (resultLength - 1);
         let fixedAverage = average.toFixed(1);
-        let color = await helpers.colormapTemp(fixedAverage);
+        let color = await colormaps.colormapTemp(fixedAverage);
 
         let answer = {
             "value": fixedAverage + "°C",
@@ -62,7 +62,7 @@ async function getAverageAirtemp (req, res) {
 
         let average = counter / (resultLength - 1);
         let fixedAverage = average.toFixed(1);
-        let color = await helpers.colormapTemp(fixedAverage);
+        let color = await colormaps.colormapTemp(fixedAverage);
   
         let answer = {
             "value": fixedAverage + "°C",
@@ -96,7 +96,7 @@ async function getAverageSoilMoist (req, res) {
 
         let average = counter / (resultLength - 1);
         let fixedAverage = average.toFixed(1);
-        let color = await helpers.colormapMoisture(fixedAverage);
+        let color = await colormaps.colormapMoisture(fixedAverage);
       
         let answer = {
             "value": fixedAverage + "%",
@@ -130,7 +130,7 @@ async function getAverageHumidity (req, res) {
 
         let average = counter / (resultLength - 1);
         let fixedAverage = average.toFixed(1);
-        let color = await helpers.colormapMoisture(fixedAverage);
+        let color = await colormaps.colormapMoisture(fixedAverage);
       
         let answer = {
             "value": fixedAverage + "%",

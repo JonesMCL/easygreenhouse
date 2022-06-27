@@ -1,7 +1,7 @@
 const axios = require("axios");
 let config = require('../config/config');
 const mariadb = require('mariadb');
-import helpers from '../helpers/helpers.js'
+import colormaps from '../helpers/colormaps.js'
 
 const mariaDBpool = mariadb.createPool({
     host: config.MARIADBHOST, 
@@ -20,7 +20,7 @@ async function getAverageSoiltemp (req, res) {
         const result = await connection.query("SELECT messwert FROM soilTemp ORDER BY id DESC LIMIT 2");
         let average = (parseFloat(result[0].messwert) + parseFloat(result[1].messwert)) / 2;
         let fixedAverage = average.toFixed(1);
-        let color = await helpers.colormapTemp(fixedAverage);
+        let color = await colormaps.colormapTemp(fixedAverage);
 
         let answer = {
             "value": fixedAverage + "°C",
@@ -46,9 +46,9 @@ async function getSplitSoiltemp (req, res) {
         const result = await connection.query("SELECT messwert FROM soilTemp ORDER BY id DESC LIMIT 2");
         let soilTemps = {
             "soilTemp1": parseFloat(result[0].messwert) + "°C",
-            "color1": await helpers.colormapTemp(result[0].messwert),
+            "color1": await colormaps.colormapTemp(result[0].messwert),
             "soilTemp2": parseFloat(result[1].messwert) + "°C",
-            "color2": await helpers.colormapTemp(result[1].messwert)
+            "color2": await colormaps.colormapTemp(result[1].messwert)
         }
         let soilTempsJson = JSON.stringify(soilTemps);
         return res.json({
@@ -71,7 +71,7 @@ async function getAverageAirtemp (req, res) {
         let average = (parseFloat(result[0].messwert) + parseFloat(result[1].messwert)) / 2;
 
         let fixedAverage = average.toFixed(1);
-        let color = await helpers.colormapTemp(fixedAverage);
+        let color = await colormaps.colormapTemp(fixedAverage);
   
         let answer = {
             "value": fixedAverage + "°C",
@@ -97,9 +97,9 @@ async function getSplitAirtemp (req, res) {
         const result = await connection.query("SELECT messwert FROM airTemp ORDER BY id DESC LIMIT 2");
         let airTemps = {
             "airTemp1": parseFloat(result[0].messwert) + "°C",
-            "color1": await helpers.colormapTemp(result[0].messwert),
+            "color1": await colormaps.colormapTemp(result[0].messwert),
             "airTemp2": parseFloat(result[1].messwert) + "°C",
-            "color2": await helpers.colormapTemp(result[1].messwert),
+            "color2": await colormaps.colormapTemp(result[1].messwert),
         }
         let airTempsJson = JSON.stringify(airTemps);
         return res.json({
@@ -122,7 +122,7 @@ async function getAverageSoilMoist (req, res) {
         let average = (parseFloat(result[0].messwert) + parseFloat(result[1].messwert) + 
                       parseFloat(result[2].messwert)) / 3;
         let fixedAverage = average.toFixed(1);
-        let color = await helpers.colormapMoisture(fixedAverage);
+        let color = await colormaps.colormapMoisture(fixedAverage);
                     
         let answer = {
             "value": fixedAverage + "%",
@@ -148,11 +148,11 @@ async function getSplitSoilMoist (req, res) {
         const result = await connection.query("SELECT messwert FROM soilMoist ORDER BY id DESC LIMIT 3");
         let soilMoist = {
             "soilMoisture1": parseFloat(result[0].messwert) + "%",
-            "color1": await helpers.colormapMoisture(result[0].messwert),
+            "color1": await colormaps.colormapMoisture(result[0].messwert),
             "soilMoisture2": parseFloat(result[1].messwert) + "%",
-            "color2": await helpers.colormapMoisture(result[1].messwert),
+            "color2": await colormaps.colormapMoisture(result[1].messwert),
             "soilMoisture3": parseFloat(result[2].messwert) + "%",
-            "color3": await helpers.colormapMoisture(result[2].messwert)
+            "color3": await colormaps.colormapMoisture(result[2].messwert)
         }
         let soilMoistJson = JSON.stringify(soilMoist);
         return res.json({
@@ -174,7 +174,7 @@ async function getAverageHumidity (req, res) {
         const result = await connection.query("SELECT messwert FROM humidity ORDER BY id DESC LIMIT 2");
         let average = (parseFloat(result[0].messwert) + parseFloat(result[1].messwert)) / 2;
         let fixedAverage = average.toFixed(1);
-        let color = await helpers.colormapMoisture(fixedAverage);
+        let color = await colormaps.colormapMoisture(fixedAverage);
                     
         let answer = {
             "value": fixedAverage + "%",
@@ -200,9 +200,9 @@ async function getSplitHumidity (req, res) {
         const result = await connection.query("SELECT messwert FROM humidity ORDER BY id DESC LIMIT 2");
         let soilMoist = {
             "humidity1": parseFloat(result[0].messwert) + "%",
-            "color1": await helpers.colormapMoisture(result[0].messwert),
+            "color1": await colormaps.colormapMoisture(result[0].messwert),
             "humidity2": parseFloat(result[1].messwert) + "%",
-            "color2": await helpers.colormapMoisture(result[1].messwert),
+            "color2": await colormaps.colormapMoisture(result[1].messwert),
         }
         let soilMoistJson = JSON.stringify(soilMoist);
         return res.json({
