@@ -10,74 +10,74 @@ window.onload = function(){
 };
 
 function loadAverageSoiltemp(){
-    let AverageSoiltemp;
+    let averageSoiltemp;
     axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getAverageSoiltemp")
     .then((response)=>{
-        AverageSoiltemp = response.data.result;
-        document.getElementById('AverageSoiltemp').innerHTML = AverageSoiltemp;
+        averageSoiltemp = response.data.result;
+        document.getElementById('averageSoiltemp').innerHTML = averageSoiltemp;
     })
     setTimeout("loadAverageSoiltemp();",5000);
 }
 function loadSplitSoiltemp(){
-    let SplitSoiltemp;
+    let splitSoiltemp;
     axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getSplitSoiltemp")
     .then((response)=>{
-        SplitSoiltemp = response.data.result;
-        document.getElementById('SplitSoiltemp').innerHTML = SplitSoiltemp;
+        splitSoiltemp = response.data.result;
+        document.getElementById('splitSoiltemp').innerHTML = splitSoiltemp;
     })
     setTimeout("loadSplitSoiltemp();",5000);
 }
 function loadAverageSoilMoist(){
-    let AverageSoilMoist;
+    let averageSoilMoist;
     axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getAverageSoilMoist")
     .then((response)=>{
-        AverageSoilMoist = response.data.result;
-        document.getElementById('AverageSoilMoist').innerHTML = AverageSoilMoist;
+        averageSoilMoist = response.data.result;
+        document.getElementById('averageSoilMoist').innerHTML = averageSoilMoist;
     })
     setTimeout("loadAverageSoilMoist();",5000);
 }
 function loadSplitSoilMoist(){
-    let SplitSoilMoist;
+    let splitSoilMoist;
     axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getSplitSoilMoist")
     .then((response)=>{
-        SplitSoilMoist = response.data.result;
-        document.getElementById('SplitSoilMoist').innerHTML = SplitSoilMoist;
+        splitSoilMoist = response.data.result;
+        document.getElementById('splitSoilMoist').innerHTML = splitSoilMoist;
     })
     setTimeout("loadSplitSoilMoist();",5000);
 }
 function loadAverageAirtemp(){
-    let AverageAirtemp;
+    let averageAirtemp;
     axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getAverageAirtemp")
     .then((response)=>{
-        AverageAirtemp = response.data.result;
-        document.getElementById('AverageAirtemp').innerHTML = AverageAirtemp;
+        averageAirtemp = response.data.result;
+        document.getElementById('averageAirtemp').innerHTML = averageAirtemp;
     })
     setTimeout("loadAverageAirtemp();",5000);
 }
 function loadSplitAirtemp(){
-    let SplitAirtemp;
+    let splitAirtemp;
     axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getSplitAirtemp")
     .then((response)=>{
-        SplitAirtemp = response.data.result;
-        document.getElementById('SplitAirtemp').innerHTML = SplitAirtemp;
+        splitAirtemp = response.data.result;
+        document.getElementById('splitAirtemp').innerHTML = splitAirtemp;
     })
     setTimeout("loadSplitAirtemp();",5000);
 }
 function loadAverageHumidity(){
-    let AverageHumidity;
+    let averageHumidity;
     axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getAverageHumidity")
     .then((response)=>{
-        AverageHumidity = response.data.result;
-        document.getElementById('AverageHumidity').innerHTML = AverageHumidity;
+        averageHumidity = response.data.result;
+        document.getElementById('averageHumidity').innerHTML = averageHumidity;
     })
     setTimeout("loadAverageHumidity();",5000);
 }
 function loadSplitHumidity(){
-    let SplitHumidity;
+    let splitHumidity;
     axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getSplitHumidity")
     .then((response)=>{
-        SplitHumidity = response.data.result;
-        document.getElementById('SplitHumidity').innerHTML = SplitHumidity;
+        splitHumidity = response.data.result;
+        document.getElementById('splitHumidity').innerHTML = splitHumidity;
     })
     setTimeout("loadSplitHumidity();",5000);
 }

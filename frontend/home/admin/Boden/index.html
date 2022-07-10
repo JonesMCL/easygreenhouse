@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="sensordata.js"></script>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -140,8 +141,8 @@
         <div class="box-text">
           <div class="right-side">
             <div class="box-topic-2">Bodentemperatur</div>
-            <div id="box-text-1">aktuell:&nbsp;&nbsp;<span class="numb">24.7 °C</span></div>
-            <div id="box-text-2">durchschnitt (jahr):&nbsp;&nbsp;<span class="numb">9.0 °C</span></div>
+            <div id="box-text-1">aktuell:&nbsp;&nbsp;<span id="averageSoiltemp">--</span><span>°C</span></div>
+            <div id="box-text-2">durchschnitt (jahr):&nbsp;&nbsp;<span id="historyAverageSoiltemp">--</span><span>°C</span></div>
             <div class="indicator">
             </div>
           </div>
@@ -149,8 +150,8 @@
         <div class="box-text">
           <div class="right-side">
             <div class="box-topic-2">Bodenfeuchtigkeit</div>
-            <div id="box-text-3">aktuell:&nbsp;&nbsp;<span class="numb">23.2 %</span></div>
-            <div id="box-text-4">durchschnitt (jahr):&nbsp;&nbsp;<span class="numb">81.4 %</span></div>
+            <div id="box-text-3">aktuell:&nbsp;&nbsp;<span id="averageSoilMoist">--</span><span>°C</span></div>
+            <div id="box-text-4">durchschnitt (jahr):&nbsp;&nbsp;<span id="historyAverageSoilMoist">--</span><span>°C</span></div>
             <div class="indicator">
             </div>
           </div>
