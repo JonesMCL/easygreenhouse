@@ -41,6 +41,7 @@ async function getAverageSoiltemp (req, res) {
         });
 
     } catch (err) {
+        console.log(err)
         return res.json({ status: 400, message: 'Could not fetch average soil temperature from database!' });
     } finally {
         if (connection) return connection.end();
@@ -231,7 +232,6 @@ async function getAverageMonthly(tablename, year) {
 }
 
 /*
-    
     getAverageSoilMoistMonthly,
     getAverageHumidityMonthly,
     */
