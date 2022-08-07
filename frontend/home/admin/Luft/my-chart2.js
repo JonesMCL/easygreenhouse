@@ -1,6 +1,6 @@
-var myChartObject = document.getElementById('myChart2');
+var chartObject = document.getElementById('chartHumidity');
 
-var chart = new Chart(myChartObject, {
+var chartHumidity = new Chart(chartObject, {
     type: 'line',
     data: {
         labels: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
@@ -22,3 +22,42 @@ var chart = new Chart(myChartObject, {
         }
     }
 });
+
+function addData(chart, data) {
+    chart.data.datasets.forEach((dataset) => {
+        for (let i = 0; i < 12; i++) {
+            dataset.data.push(data[i]);
+        }
+    });
+
+    chart.update();
+}
+
+function removeData(chart) {
+    chart.data.datasets.forEach((dataset) => {
+        for (let i = 0; i < 12; i++) {
+            dataset.data.pop();
+        }
+    });
+
+    chart.update();
+}
+
+axios.get("http://0.0.0.0:4000/api/sensordataHistory/getAverageHumidityMonthly").then(
+    async (response) => {
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "")
+        replaced = replaced.replace(/.$/,"")
+        let jsonResp = JSON.parse(replaced)
+
+        let data = []
+        for(let i = 0; i < 12; i++) {
+            data.push(jsonResp.table[i].value)
+        }
+
+        removeData(chartHumidity)
+        addData(chartHumidity, data)
+    }
+);  
