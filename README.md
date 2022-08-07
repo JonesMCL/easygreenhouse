@@ -20,6 +20,21 @@ Technology choices:
 - CSS
 - Javascript
 
-#How to get started
+## How to get started
+
+## Install
+Install git tool:
+```
+sudo apt-get install git
+```
+
+Clone this GitHub project:
+```
+git clone https://github.com/JonesMCL/easygreenhouse.git
+```
+
+Now follow the instructions of the script.
+
+
 
 #How to contribute
