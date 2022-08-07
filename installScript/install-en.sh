@@ -13,7 +13,7 @@
 
 # colors
 NORMAL='\033[39m'
-BLUE='\033[34m'
+BLUE='\033[1;34m'
 GREEN='\033[1;32m'
 RED='\033[1;31m'
 ORANGE='\033[1;33m'
@@ -74,19 +74,24 @@ fi
 # Script (From here, all the necessary parts are installed.)
 
 # install
+echo
 echo -e ""$BLUE"Install required parts.."
 echo -e ""$BLUE"This may take a few minutes.."
 
 # update system
+echo
 echo -e ""$BLUE"Update system.."
+echo -e "$NORMAL"
 sudo apt-get update
 sudo apt-get upgrade -y
 
 # install Modules - general
+echo
 echo -e ""$BLUE"Install general modules.."
 echo -e "$NORMAL"
 sudo apt-get install python3-pip -y
 sudo apt-get install build-essential python3-dev -y
+sudo python3 setup.py install
 pip3 install subprocess.run
 pip3 install ping3
 pip3 install discord-webhook
@@ -94,6 +99,7 @@ pip3 install discord-webhook
 
 
 # install Modules - Soil moisture sensor
+echo
 echo -e ""$BLUE"Install modules for soil moisture sensor.."
 echo -e "$NORMAL"
 pip3 install smbus
@@ -103,13 +109,15 @@ cd .. # jump to previous path
 
 
 # install Modules - Temperature and Humidity sensor
-echo -e""$BLUE"Install modules for Temperature and Humidity sensor.."
+echo
+echo -e ""$BLUE"Install modules for Temperature and Humidity sensor.."
 echo -e "$NORMAL"
 sudo python3 -m pip install --upgrade pip setuptools wheel
 sudo pip3 install Adafruit_DHT
 
 
 # install Modules - soilTemperature sensor
+echo
 echo -e ""$BLUE"Install modules for soil Temperature sensor.."
 echo -e ""$BLUE"enable 1-Wire.."
 echo -e "$NORMAL"
@@ -121,6 +129,7 @@ sudo modprobe w1-therm
 
 
 # install Modules - ventilation (cooling)
+echo
 echo -e ""$BLUE"Install modules for ventilation (cooling).."
 echo -e "$NORMAL"
 sudo apt-get install gcc libusb-dev -y
@@ -131,21 +140,19 @@ cd .. # jump to previous path
 
 
 # install database
+echo
 echo -e ""$BLUE"install database.."
 echo -e "$NORMAL"
 sudo apt install mariadb-server -y
+sudo apt-get install libmariadb3 libmariadb-dev -y
 pip3 install mariadb
 
 echo -e ""$BLUE"start setup.."
 echo -e "$NORMAL"
 sudo mysql_secure_installation
 
-
-# clone GitHub Repository
-#echo -e ""$BLUE"Clones easygreenhouse repository.."
-#git clone https://github.com/JonesMCL/easygreenhouse.git
-
 # End
+echo
 echo -e ""$GREEN"Script was installed successfully."
 echo -e ""$BLUE"Your version of the website: v x.x.x"
 echo -e ""$BLUE"If a newer version is available, you can update your website at any time using the update script."
