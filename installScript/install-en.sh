@@ -12,8 +12,8 @@
 # Variables
 
 # colors
-#NORMAL='\033[39m'
-BLUE='\033[34m'
+NORMAL='\033[39m'
+BLUE='\033[1;34m'
 GREEN='\033[1;32m'
 RED='\033[1;31m'
 ORANGE='\033[1;33m'
@@ -24,13 +24,13 @@ trap CtrlC INT
 
 # Function for trap
 CtrlC() {
-  echo ""$ORANGE""
+  echo -e ""$ORANGE""
   read -p "Are you sure you want to quit the script? [y/n] " reply
     if [ "$reply" == "y" ];
     then
     exit 0
     else
-    echo ""$ORANGE"Okay, go ahead."
+    echo -e ""$ORANGE"Okay, go ahead."
     fi
 }
 
@@ -38,16 +38,16 @@ CtrlC() {
 # DO NOT AJUST! - Script begin #
 
 # Welcome
-echo ""$GREEN"Welcome! With this script from Easy Tec you install the software for the EASYGREENHOUSE on your Raspberry Pi."
-echo ""$ORANGE"With this action you agree to the license."
+echo -e ""$GREEN"Welcome! With this script from Easy Tec you install the software for the EASYGREENHOUSE on your Raspberry Pi."
+echo -e ""$ORANGE"With this action you agree to the license."
 read -p "Do you want to continue? (y/n)" query_continue
 
 if [ "$query_continue" = n ];
   then
-  echo ""$RED"Okay, you have not accepted the license. Cancel.."
+  echo -e ""$RED"Okay, you have not accepted the license. Cancel.."
   exit 0
   else
-  echo "Okay, go ahead.."
+  echo -e "Okay, go ahead.."
 fi
 
 #Queries
@@ -61,94 +61,114 @@ fi
 #    read -p "Statement correct? (y/n): $Abfrage2 " Abfrage2_2
 #    if [ "$Abfrage2_2" == "n" ];
 #      then
-#        echo ""$RED"Too many misstakes. Please run the script again. Abort.."
+#        echo -e ""$RED"Too many misstakes. Please run the script again. Abort.."
 #        exit 0
 #    else
-#        echo ""$GREEN"Okay, go ahead.."
+#        echo -e ""$GREEN"Okay, go ahead.."
 #    fi
 #  else
-#    echo ""$GREEN"Okay, go ahead.."
+#    echo -e ""$GREEN"Okay, go ahead.."
 #fi
 
 
 # Script (From here, all the necessary parts are installed.)
 
 # install
-echo ""$BLUE"Install required parts.."
-echo ""$BLUE"This may take a few minutes.."
+echo
+echo -e ""$BLUE"Install required parts.."
+echo -e ""$BLUE"This may take a few minutes.."
 
 # update system
-echo ""$BLUE"Update system.."
+echo
+echo -e ""$BLUE"Update system.."
+echo -e "$NORMAL"
 sudo apt-get update
 sudo apt-get upgrade -y
 
 # install Modules - general
-echo ""$BLUE"Install general modules.."
+echo
+echo -e ""$BLUE"Install general modules.."
+echo -e "$NORMAL"
 sudo apt-get install python3-pip -y
-sudo apt-get install build-essential python-dev git
-pip3 install subprocess
+sudo apt-get install build-essential python3-dev -y
+sudo python3 setup.py install
+pip3 install subprocess.run
 pip3 install ping3
 pip3 install discord-webhook
 
 
 
 # install Modules - Soil moisture sensor
-echo ""$BLUE"Install modules for soil moisture sensor.."
+echo
+echo -e ""$BLUE"Install modules for soil moisture sensor.."
+echo -e "$NORMAL"
 pip3 install smbus
 git clone https://github.com/adafruit/Adafruit_Python_ADS1x15
 cd Adafruit_Python_ADS1x15 && sudo python3 setup.py install
+cd .. # jump to previous path
 
 
 # install Modules - Temperature and Humidity sensor
-echo ""$BLUE"Install modules for Temperature and Humidity sensor.."
+echo
+echo -e ""$BLUE"Install modules for Temperature and Humidity sensor.."
+echo -e "$NORMAL"
 sudo python3 -m pip install --upgrade pip setuptools wheel
 sudo pip3 install Adafruit_DHT
 
 
 # install Modules - soilTemperature sensor
-echo ""$BLUE"Install modules for soil Temperature sensor.."
-echo ""$BLUE"enable 1-Wire.."
-sed -i -e '$a2 dtoverlay=w1-gpio' /boot/config.txt
-echo ""$BLUE"set up certain functions.."
+echo
+echo -e ""$BLUE"Install modules for soil Temperature sensor.."
+echo -e ""$BLUE"enable 1-Wire.."
+echo -e "$NORMAL"
+sudo sed -i -e '$a dtoverlay=w1-gpio' /boot/config.txt
+echo -e ""$BLUE"set up certain functions.."
+echo -e "$NORMAL"
 sudo modprobe w1-gpio
 sudo modprobe w1-therm
 
 
 # install Modules - ventilation (cooling)
-echo ""$BLUE"Install modules for ventilation (cooling).."
-sudo apt-get install libusb-dev
+echo
+echo -e ""$BLUE"Install modules for ventilation (cooling).."
+echo -e "$NORMAL"
+sudo apt-get install gcc libusb-dev -y
+git clone https://github.com/codazoda/hub-ctrl.c
+cd hub-ctrl.c/
 gcc -o hub-ctrl hub-ctrl.c -lusb
+cd .. # jump to previous path
 
 
 # install database
-echo ""$BLUE"install database.."
-sudo apt install mariadb-server
+echo
+echo -e ""$BLUE"install database.."
+echo -e "$NORMAL"
+sudo apt install mariadb-server -y
+sudo apt-get install libmariadb3 libmariadb-dev -y
 pip3 install mariadb
 
-echo ""$BLUE"start setup.."
+echo -e ""$BLUE"start setup.."
+echo -e "$NORMAL"
 sudo mysql_secure_installation
 
-
-# clone GitHub Repository
-echo ""$BLUE"Clones easygreenhouse repository.."
-git clone https://github.com/JonesMCL/easygreenhouse.git
-
 # End
-echo ""$GREEN"Script was installed successfully."
-echo ""$BLUE"Your version of the website: v x.x.x"
-echo ""$BLUE"If a newer version is available, you can update your website at any time using the update script."
-echo ""$BLUE"Learn more about the update script by checking out this project on GitHub."
+echo
+echo -e ""$GREEN"Script was installed successfully."
+echo -e ""$BLUE"Your version of the website: v x.x.x"
+echo -e ""$BLUE"If a newer version is available, you can update your website at any time using the update script."
+echo -e ""$BLUE"Learn more about the update script by checking out this project on GitHub."
 
 # Query
 read -p "To complete this installation, the Raspberry Pi must be restarted. Reboot now? (y/n) " rebootNow
 if [ "$rebootNow" = y ];
   then
-  echo ""$ORANGE"Script end. Restart in progress.."
+  echo -e ""$ORANGE"Script end. Restart in progress.."
+  echo -e "$NORMAL"
   sudo reboot
   else
-    echo ""$ORANGE"Cancelled. Please restart the Raspberry Pi soon so that the easygreenhouse can run without problems."
-    echo ""$ORANGE"You can reboot with this command: sudo reboot"
-    echo ""$ORANGE"Script end."
+    echo -e ""$ORANGE"Cancelled. Please restart the Raspberry Pi soon so that the easygreenhouse can run without problems."
+    echo -e ""$ORANGE"You can reboot with this command: sudo reboot"
+    echo -e ""$ORANGE"Script end."
 fi
 
 
