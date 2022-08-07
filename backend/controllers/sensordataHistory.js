@@ -212,6 +212,68 @@ async function getAverageAirtempMonthly (req, res) {
     }
 };
 
+// Get average soil moisture separated by month from the last 12 months
+async function getAverageSoilMoistMonthly (req, res) {
+
+    let connection;
+    try {
+        connection = await mariaDBpool.getConnection();
+        let obj = {
+            table: []
+         };
+
+        for(let i = 0; i < 12; i++) {
+            let month = i + 1;
+            let year = new Date().getFullYear();
+            let query = "SELECT * FROM soilMoist WHERE MONTH(timestamp) =" + month + " AND YEAR(timestamp) = " + year;
+            const result = await connection.query(query);
+            let oneMonthlyAverage = await calculateMonthlyAverage(result);
+            obj.table.push({month: month, value: oneMonthlyAverage});
+        };
+        var jsonResponse = JSON.stringify(obj);
+
+        return res.json({
+            status: 200, message: '1', result: JSON.stringify(jsonResponse)
+        });
+
+    } catch (err) {
+        return res.json({ status: 400, message: 'Could not fetch average soil moisture from database!'});
+    } finally {
+        if (connection) return connection.end();
+    }
+};
+
+// Get average humidity separated by month from the last 12 months
+async function getAverageHumidityMonthly (req, res) {
+
+    let connection;
+    try {
+        connection = await mariaDBpool.getConnection();
+        let obj = {
+            table: []
+         };
+
+        for(let i = 0; i < 12; i++) {
+            let month = i + 1;
+            let year = new Date().getFullYear();
+            let query = "SELECT * FROM humidity WHERE MONTH(timestamp) =" + month + " AND YEAR(timestamp) = " + year;
+            const result = await connection.query(query);
+            let oneMonthlyAverage = await calculateMonthlyAverage(result);
+            obj.table.push({month: month, value: oneMonthlyAverage});
+        };
+        var jsonResponse = JSON.stringify(obj);
+
+        return res.json({
+            status: 200, message: '1', result: JSON.stringify(jsonResponse)
+        });
+
+    } catch (err) {
+        return res.json({ status: 400, message: 'Could not fetch average humidity from database!'});
+    } finally {
+        if (connection) return connection.end();
+    }
+};
+
 async function calculateMonthlyAverage(jsonObject) {
     let resultLength = Object.keys(jsonObject).length;
     let counter = 0;
@@ -231,16 +293,13 @@ async function getAverageMonthly(tablename, year) {
     // monatlichen Tabellen, also der For-Schlefe !!
 }
 
-/*
-    getAverageSoilMoistMonthly,
-    getAverageHumidityMonthly,
-    */
-
 export default {
     getAverageSoiltemp,
     getAverageAirtemp,
     getAverageSoilMoist,
     getAverageHumidity,
     getAverageSoiltempMonthly,
-    getAverageAirtempMonthly
+    getAverageAirtempMonthly,
+    getAverageSoilMoistMonthly,
+    getAverageHumidityMonthly
 }

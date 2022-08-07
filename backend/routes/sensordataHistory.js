@@ -28,5 +28,12 @@ router.route('/sensordataHistory/getAverageAirtempMonthly')
   /** GET /api/sensordataHistory/getAverageAirtempMonthly - Get average air temperature separated by month from the last 12 months */
   .get(sensorCtrl.getAverageAirtempMonthly)
 
+router.route('/sensordataHistory/getAverageSoilMoistMonthly')
+  /** GET /api/sensordataHistory/getAverageSoilMoistMonthly - Get average soil moisture separated by month from the last 12 months */
+  .get(sensorCtrl.getAverageSoilMoistMonthly)
+
+router.route('/sensordataHistory/getAverageHumidityMonthly')
+  /** GET /api/sensordataHistory/getAverageHumidityMonthly - Get average humidity separated by month from the last 12 months */
+  .get(sensorCtrl.getAverageHumidityMonthly)
 
 export default router
