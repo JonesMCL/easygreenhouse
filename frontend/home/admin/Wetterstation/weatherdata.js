@@ -11,83 +11,114 @@ window.onload = function(){
 };
 
 function loadAirtemp(){
-    let Airtemp;
     axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getAirtemp")
     .then((response)=>{
-        Airtemp = response.data.result;
-        document.getElementById('Airtemp').innerHTML = Airtemp;
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let airtemp = JSON.parse(replaced)
+        document.getElementById('Airtemp').innerHTML = airtemp.value
+        document.getElementById('Airtemp').style.color = airtemp.color
     })
     setTimeout("loadAirtemp();",5000);
 }
 function loadAirHumidity(){
-    let Humidity;
     axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getHumidity")
     .then((response)=>{
-        Humidity = response.data.result;
-        document.getElementById('Humidity').innerHTML = Humidity;
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let humidity = JSON.parse(replaced)
+        document.getElementById('Humidity').innerHTML = humidity.value
+        document.getElementById('Humidity').style.color = humidity.color
     })
     setTimeout("loadAirHumidity();",5000);
 }
 function loadWindSpeed(){
-    let WindSpeed;
     axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getWindSpeed")
     .then((response)=>{
-        WindSpeed = response.data.result;
-        document.getElementById('WindSpeed').innerHTML = WindSpeed;
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let windSpeed = JSON.parse(replaced)
+        document.getElementById('WindSpeed').innerHTML = windSpeed.value
+        document.getElementById('WindSpeed').style.color = windSpeed.color
     })
     setTimeout("loadWindSpeed();",5000);
 }
 function loadWindDir(){
-    let WindDir;
     axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getWindDir")
     .then((response)=>{
-        WindDir = response.data.result;
-        document.getElementById('WindDir').innerHTML = WindDir;
+        let windDir = response.data.result;
+        document.getElementById('WindDir').innerHTML = windDir;
     })
     setTimeout("loadWindDir();",5000);
 }
 function loadAirPressure(){
-    let Pressure;
     axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getPressure")
     .then((response)=>{
-        Pressure = response.data.result;
-        document.getElementById('Pressure').innerHTML = Pressure;
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let pressure = JSON.parse(replaced)
+        document.getElementById('Pressure').innerHTML = pressure.value
+        document.getElementById('Pressure').style.color = pressure.color
     })
     setTimeout("loadPressure();",5000);
 }
 function loadPrecipTotal(){
-    let PrecipTotal;
     axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getPrecipTotal")
     .then((response)=>{
-        PrecipTotal = response.data.result;
-        document.getElementById('PrecipTotal').innerHTML = PrecipTotal;
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let precipTotal = JSON.parse(replaced)
+        document.getElementById('PrecipTotal').innerHTML = precipTotal.value
+        document.getElementById('PrecipTotal').style.color = precipTotal.color
     })
     setTimeout("loadPrecipTotal();",5000);
 }
 function loadPrecipRate(){
-    let PrecipRate;
     axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getPrecipRate")
     .then((response)=>{
-        PrecipRate = response.data.result;
-        document.getElementById('PrecipRate').innerHTML = PrecipRate;
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let precipRate = JSON.parse(replaced)
+        document.getElementById('PrecipRate').innerHTML = precipRate.value
+        document.getElementById('PrecipRate').style.color = precipRate.color
     })
     setTimeout("loadPrecipRate();",5000);
 }
 function loadUV(){
-    let UV;
     axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getUV")
     .then((response)=>{
-        UV = response.data.result;
-        document.getElementById('UV').innerHTML = UV;
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let uV = JSON.parse(replaced)
+        document.getElementById('UV').innerHTML = uV.value
+        document.getElementById('UV').style.color = uV.color
     })
     setTimeout("loadUV();",5000);
 }
 function loadSolarRadiation(){
-    let SolarRadiation;
     axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getSolarRadiation")
     .then((response)=>{
-        SolarRadiation = response.data.result;
-        document.getElementById('SolarRadiation').innerHTML = SolarRadiation;
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let solarRadiation = JSON.parse(replaced)
+        document.getElementById('SolarRadiation').innerHTML = solarRadiation.value
+        document.getElementById('SolarRadiation').style.color = solarRadiation.color
     })
     setTimeout("loadSolarRadiation();",5000);
 }

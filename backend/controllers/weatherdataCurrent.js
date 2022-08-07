@@ -100,7 +100,7 @@ async function getPressure (req, res) {
             let color = await colormaps.colormapPressure(pressure);
         
             let answer = {
-                "value": pressure + " hpa",
+                "value": pressure + " HPa",
                 "color": color
             }
         
@@ -192,7 +192,7 @@ async function getSolarRadiation (req, res) {
             let color = await colormaps.colormapSolarRadiation(solarRadiation);
         
             let answer = {
-                "value": solarRadiation + "watt/m^2",
+                "value": solarRadiation + " watt/m²",
                 "color": color
             }
         
