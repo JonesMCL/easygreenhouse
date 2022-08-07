@@ -9,6 +9,9 @@
 
 # Variables
 
+# current time for database backup
+timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
+
 # colors
 #NORMAL='\033[39m'
 BLUE='\033[34m'
@@ -16,6 +19,13 @@ GREEN='\033[1;32m'
 RED='\033[1;31m'
 ORANGE='\033[1;33m'
 
+# check for root privileges
+#
+if [ "$(id -u)" != "0" ]
+then
+	echo ""$RED"ERROR: This script must be executed as root!"
+	exit 1
+fi
 
 # Detect ctrl+C
 trap CtrlC INT
@@ -38,6 +48,7 @@ CtrlC() {
 # Welcome
 echo ""$GREEN"Welcome! With this script from Easy Tec you update the software for the EASYGREENHOUSE on your Raspberry Pi."
 echo ""$ORANGE"With this action you agree to the license."
+echo ""$ORANGE"Also, this script will reinstall your database. The database can be damaged during the backup or restore process."
 read -p "Do you want to continue? (y/n)" query_continue
 
 if [ "$query_continue" = n ];
@@ -104,31 +115,57 @@ sudo pip3 install Adafruit_DHT
 
 # update Modules - soilTemperature sensor
 echo ""$BLUE"Update modules for soil Temperature sensor.."
-
+echo ""$GREEN"Nothing to update."
 
 # install Modules - ventilation (cooling)
-echo ""$BLUE"Install modules for ventilation (cooling).."
+echo ""$BLUE"Update modules for ventilation (cooling).."
 sudo apt-get install libusb-dev
 gcc -o hub-ctrl hub-ctrl.c -lusb
 
 
 # update database
-echo ""$BLUE"install database.."
+echo ""$BLUE"update database.."
+echo ""$BLUE"create backup folder if not exist.."
+mkdir -p mysql_backup
+echo ""$BLUE"backup database.."
+mysqldump -u root -p --events --all-databases > /mysql_backup/fullbackup_$timestamp.sql
+
+if [ ! -f /home/easy/mysql_backup/fullbackup_$timestamp.sql ]; then
+    echo ""$RED"wrong password or error!"
+    echo ""$RED"Please try again!"
+    mysqldump -u root -p --events --all-databases > /mysql_backup/fullbackup_$timestamp.sql
+
+    if [ ! -f /home/easy/mysql_backup/fullbackup_$timestamp.sql ]; then
+      echo ""$RED"wrong password or error!"
+      echo ""$RED"Backup could not be created! abort.."
+      exit 1
+    else
+      echo ""$ORANGE"Backup was created. Go ahead.."
+    fi  
+else
+echo ""$ORANGE"Backup was created. Go ahead.."
+fi
+
+echo ""$BLUE"stop database.."
+sudo service mysql stop
+
+echo ""$BLUE"reinstall database.."
 sudo apt install mariadb-server
-pip3 install mariadb
+
+echo ""$BLUE"update database.."
+mysql_upgrade
+
+echo ""$BLUE"restore database.."
+sudo mysql -u root -p mysql * < backup.sql
 
 echo ""$BLUE"start setup.."
 sudo mysql_secure_installation
 
 
 
-# backup database
-#mysqldump -u root -p --events --all-databases | gzip > backup.sql.gz
-#mysql db_name < backup-file.sql
-
 # clone GitHub Repository
 echo ""$BLUE"Clones easygreenhouse repository.."
-git clone https://github.com/JonesMCL/easygreenhouse.git
+git pull https://github.com/JonesMCL/easygreenhouse.git
 
 # End
 echo ""$GREEN"Script was installed successfully."
@@ -137,7 +174,7 @@ echo ""$BLUE"If a newer version is available, you can update your website at any
 echo ""$BLUE"Learn more about the update script by checking out this project on GitHub."
 
 # Query
-read -p "To complete this installation, the Raspberry Pi must be restarted. Reboot now? (y/n) " rebootNow
+read -p "To complete this update, the Raspberry Pi must be restarted. Reboot now? (y/n) " rebootNow
 if [ "$rebootNow" = y ];
   then
   echo ""$ORANGE"Script end. Restart in progress.."
