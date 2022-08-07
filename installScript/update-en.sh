@@ -59,26 +59,10 @@ if [ "$query_continue" = n ];
   echo "Okay, go ahead.."
 fi
 
-#Queries
 
-# Abfrage1 (z.B. sowas wie Passwort oder so - kann er selber anlegen..)
-#read -p "Please enter your external domain for the website (or IP address for -exclusively- internal accesses): " Abfrage1
-#read -p "Statement correct? (y/n): $Abfrage1 " Abfrage1_1
-#if [ "$Abfrage1_1" == "n" ];
-#  then
-#    read -p "Please enter your external domain for the website (or IP address for -exclusively- internal accesses): " Abfrage2
-#    read -p "Statement correct? (y/n): $Abfrage2 " Abfrage2_2
-#    if [ "$Abfrage2_2" == "n" ];
-#      then
-#        echo ""$RED"Too many misstakes. Please run the script again. Abort.."
-#        exit 0
-#    else
-#        echo ""$GREEN"Okay, go ahead.."
-#    fi
-#  else
-#    echo ""$GREEN"Okay, go ahead.."
-#fi
-
+# query which user is used
+echo "$ORANGE"
+read -p "Enter your username: " username
 
 # Script (From here, all the necessary parts are updated.)
 
@@ -130,12 +114,12 @@ mkdir -p mysql_backup
 echo ""$BLUE"backup database.."
 mysqldump -u root -p --events --all-databases > /mysql_backup/fullbackup_$timestamp.sql
 
-if [ ! -f /home/easy/mysql_backup/fullbackup_$timestamp.sql ]; then
+if [ ! -f /home/$username/mysql_backup/fullbackup_$timestamp.sql ]; then
     echo ""$RED"wrong password or error!"
     echo ""$RED"Please try again!"
     mysqldump -u root -p --events --all-databases > /mysql_backup/fullbackup_$timestamp.sql
 
-    if [ ! -f /home/easy/mysql_backup/fullbackup_$timestamp.sql ]; then
+    if [ ! -f /home/$username/mysql_backup/fullbackup_$timestamp.sql ]; then
       echo ""$RED"wrong password or error!"
       echo ""$RED"Backup could not be created! abort.."
       exit 1
