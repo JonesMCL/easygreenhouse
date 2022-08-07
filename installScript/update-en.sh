@@ -14,7 +14,7 @@ timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 
 # colors
 NORMAL='\033[39m'
-BLUE='\033[34m'
+BLUE='\033[1;34m'
 GREEN='\033[1;32m'
 RED='\033[1;31m'
 ORANGE='\033[1;33m'
@@ -61,33 +61,39 @@ fi
 
 
 # query which user is used
+echo
 echo -e "$ORANGE"
 read -p "Enter your username: " username
 
 # Script (From here, all the necessary parts are updated.)
 
 # update
+echo
 echo -e ""$BLUE"Update required parts.."
 echo -e ""$BLUE"This may take a few minutes.."
 
 # update system
+echo
 echo -e ""$BLUE"Update system.."
 echo -e "$NORMAL"
 sudo apt-get update
 sudo apt-get upgrade -y
 
 # update Modules - general
+echo
 echo -e ""$BLUE"Update general modules.."
 echo -e "$NORMAL"
 pip3 install --upgrade pip
 sudo apt-get install python3-pip -y
 sudo apt-get install build-essential python-dev git -y
+sudo python3 setup.py install
 pip3 install subprocess.run
 pip3 install ping3
 pip3 install discord-webhook
 
 
 # update Modules - Soil moisture sensor
+echo
 echo -e ""$BLUE"Update modules for soil moisture sensor.."
 echo -e "$NORMAL"
 pip3 install smbus
@@ -96,6 +102,7 @@ cd Adafruit_Python_ADS1x15 && sudo python3 setup.py install
 
 
 # update Modules - Temperature and Humidity sensor
+echo
 echo -e ""$BLUE"Update modules for Temperature and Humidity sensor.."
 echo -e "$NORMAL"
 sudo python3 -m pip install --upgrade pip setuptools wheel
@@ -103,16 +110,19 @@ sudo pip3 install Adafruit_DHT
 
 
 # update Modules - soilTemperature sensor
+echo
 echo -e ""$BLUE"Update modules for soil Temperature sensor.."
 echo -e ""$GREEN"Nothing to update."
 
 # install Modules - ventilation (cooling)
+echo
 echo -e ""$BLUE"Update modules for ventilation (cooling).."
 echo -e "$NORMAL"
 sudo apt-get install gcc libusb-dev -y
 
 
 # update database
+echo
 echo -e ""$BLUE"update database.."
 echo -e ""$BLUE"create backup folder if not exist.."
 echo -e "$NORMAL"
@@ -161,11 +171,13 @@ sudo mysql_secure_installation
 
 
 # clone GitHub Repository
+echo
 echo -e ""$BLUE"Clones easygreenhouse repository.."
 echo -e "$NORMAL"
 git pull https://github.com/JonesMCL/easygreenhouse.git
 
 # End
+echo
 echo -e ""$GREEN"Script was installed successfully."
 echo -e ""$BLUE"Your version of the website: v x.x.x"
 echo -e ""$BLUE"If a newer version is available, you can update your website at any time using the update script."
