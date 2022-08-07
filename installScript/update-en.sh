@@ -79,9 +79,10 @@ sudo apt-get upgrade -y
 # update Modules - general
 echo -e ""$BLUE"Update general modules.."
 echo -e "$NORMAL"
+pip3 install --upgrade pip
 sudo apt-get install python3-pip -y
-sudo apt-get install build-essential python-dev git
-pip3 install subprocess
+sudo apt-get install build-essential python-dev git -y
+pip3 install subprocess.run
 pip3 install ping3
 pip3 install discord-webhook
 
@@ -108,8 +109,7 @@ echo -e ""$GREEN"Nothing to update."
 # install Modules - ventilation (cooling)
 echo -e ""$BLUE"Update modules for ventilation (cooling).."
 echo -e "$NORMAL"
-sudo apt-get install libusb-dev
-gcc -o hub-ctrl hub-ctrl.c -lusb
+sudo apt-get install gcc libusb-dev -y
 
 
 # update database
@@ -144,7 +144,7 @@ sudo service mysql stop
 
 echo -e ""$BLUE"reinstall database.."
 echo -e "$NORMAL"
-sudo apt install mariadb-server
+sudo apt install mariadb-server -y
 
 echo -e ""$BLUE"update database.."
 echo -e "$NORMAL"
