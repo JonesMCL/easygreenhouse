@@ -96,6 +96,7 @@ function loadPrecipRate(){
     })
     setTimeout("loadPrecipRate();",5000);
 }
+
 function loadUV(){
     axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getUV")
     .then((response)=>{
@@ -104,11 +105,12 @@ function loadUV(){
         let replaced = responseCutBackslash.replace(char, "{")
         replaced = replaced.replace(/.$/,"}")
         let uV = JSON.parse(replaced)
-        document.getElementById('UV').innerHTML = uV.value
-        document.getElementById('UV').style.color = uV.color
+        document.getElementById('uv').innerHTML = uV.value
+        document.getElementById('uv').style.color = uV.color
     })
     setTimeout("loadUV();",5000);
 }
+
 function loadSolarRadiation(){
     axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getSolarRadiation")
     .then((response)=>{
@@ -117,8 +119,8 @@ function loadSolarRadiation(){
         let replaced = responseCutBackslash.replace(char, "{")
         replaced = replaced.replace(/.$/,"}")
         let solarRadiation = JSON.parse(replaced)
-        document.getElementById('SolarRadiation').innerHTML = solarRadiation.value
-        document.getElementById('SolarRadiation').style.color = solarRadiation.color
+        document.getElementById('solarRadiation').innerHTML = solarRadiation.value
+        document.getElementById('solarRadiation').style.color = solarRadiation.color
     })
     setTimeout("loadSolarRadiation();",5000);
 }
