@@ -1,83 +1,92 @@
 window.onload = function(){
     loadAverageSoiltemp();
-    loadSplitSoiltemp();
     loadAverageSoilMoist();
-    loadSplitSoilMoist();
     loadAverageAirtemp();
-    loadSplitAirtemp();
     loadAverageHumidity();
-    loadSplitHumidity();
+    loadUV();
+    loadSolarRadiation();
 };
 
 function loadAverageSoiltemp(){
-    let averageSoiltemp;
     axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getAverageSoiltemp")
     .then((response)=>{
-        averageSoiltemp = response.data.result;
-        document.getElementById('averageSoiltemp').innerHTML = averageSoiltemp;
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let averageSoiltemp = JSON.parse(replaced)
+        document.getElementById('averageSoiltemp').innerHTML = averageSoiltemp.value
+        document.getElementById('averageSoiltemp').style.color = averageSoiltemp.color
     })
     setTimeout("loadAverageSoiltemp();",5000);
 }
-function loadSplitSoiltemp(){
-    let splitSoiltemp;
-    axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getSplitSoiltemp")
-    .then((response)=>{
-        splitSoiltemp = response.data.result;
-        document.getElementById('splitSoiltemp').innerHTML = splitSoiltemp;
-    })
-    setTimeout("loadSplitSoiltemp();",5000);
-}
+
 function loadAverageSoilMoist(){
-    let averageSoilMoist;
     axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getAverageSoilMoist")
     .then((response)=>{
-        averageSoilMoist = response.data.result;
-        document.getElementById('averageSoilMoist').innerHTML = averageSoilMoist;
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let averageSoilMoist = JSON.parse(replaced)
+        document.getElementById('averageSoilMoist').innerHTML = averageSoilMoist.value
+        document.getElementById('averageSoilMoist').style.color = averageSoilMoist.color
     })
     setTimeout("loadAverageSoilMoist();",5000);
 }
-function loadSplitSoilMoist(){
-    let splitSoilMoist;
-    axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getSplitSoilMoist")
-    .then((response)=>{
-        splitSoilMoist = response.data.result;
-        document.getElementById('splitSoilMoist').innerHTML = splitSoilMoist;
-    })
-    setTimeout("loadSplitSoilMoist();",5000);
-}
+
 function loadAverageAirtemp(){
-    let averageAirtemp;
     axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getAverageAirtemp")
     .then((response)=>{
-        averageAirtemp = response.data.result;
-        document.getElementById('averageAirtemp').innerHTML = averageAirtemp;
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let averageAirtemp = JSON.parse(replaced)
+        document.getElementById('averageAirtemp').innerHTML = averageAirtemp.value
+        document.getElementById('averageAirtemp').style.color = averageAirtemp.color
     })
     setTimeout("loadAverageAirtemp();",5000);
 }
-function loadSplitAirtemp(){
-    let splitAirtemp;
-    axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getSplitAirtemp")
-    .then((response)=>{
-        splitAirtemp = response.data.result;
-        document.getElementById('splitAirtemp').innerHTML = splitAirtemp;
-    })
-    setTimeout("loadSplitAirtemp();",5000);
-}
+
 function loadAverageHumidity(){
-    let averageHumidity;
     axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getAverageHumidity")
     .then((response)=>{
-        averageHumidity = response.data.result;
-        document.getElementById('averageHumidity').innerHTML = averageHumidity;
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let averageHumidity = JSON.parse(replaced)
+        document.getElementById('averageHumidity').innerHTML = averageHumidity.value
+        document.getElementById('averageHumidity').style.color = averageHumidity.color
     })
     setTimeout("loadAverageHumidity();",5000);
 }
-function loadSplitHumidity(){
-    let splitHumidity;
-    axios.get("http://0.0.0.0:4000/api/sensordataCurrent/getSplitHumidity")
+
+function loadUV(){
+    axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getUV")
     .then((response)=>{
-        splitHumidity = response.data.result;
-        document.getElementById('splitHumidity').innerHTML = splitHumidity;
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let uv = JSON.parse(replaced)
+        document.getElementById('lightcurrent').innerHTML = uv.value
+        document.getElementById('lightcurrent').style.color = uv.color
     })
-    setTimeout("loadSplitHumidity();",5000);
+    setTimeout("uv();",5000);
+}
+
+function loadSolarRadiation(){
+    axios.get("http://0.0.0.0:4000/api/weatherdataCurrent/getSolarRadiation")
+    .then((response)=>{
+        responseCutBackslash = response.data.result.toString().replace(/\\/g, '')
+        const char = responseCutBackslash[0];
+        let replaced = responseCutBackslash.replace(char, "{")
+        replaced = replaced.replace(/.$/,"}")
+        let watt = JSON.parse(replaced)
+        document.getElementById('wattscurrent').innerHTML = watt.value
+        document.getElementById('wattscurrent').style.color = watt.color
+    })
+    setTimeout("loadsolarRadiation();",5000);
 }
