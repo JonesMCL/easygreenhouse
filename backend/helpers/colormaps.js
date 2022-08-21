@@ -7,13 +7,13 @@ function colormapTemp(num){
        color = 'orange';
     }
     else if (num > 8 && num <= 15){
-      color = 'yellow';
+      color = '#FFDD00';
     }
     else if (num > 15 && num <= 26){
       color = 'green';
     }
     else if (num > 26 && num <= 30){
-      color = 'yellow';
+      color = '#FFDD00';
     }
     else if (num > 30 && num <= 35){
       color = 'orange';
@@ -37,13 +37,13 @@ function colormapMoisture(num){
        color = 'orange';
     }
     else if (num > 25 && num <= 45){
-      color = 'yellow';
+      color = '#FFDD00';
     }
     else if (num > 45 && num <= 70){
       color = 'green';
     }
     else if (num > 70 && num <= 80){
-      color = 'green-yellow';
+      color = '#FFDD00';
     }
     else if (num > 80 && num <= 100){
       color = 'orange';
@@ -64,7 +64,7 @@ function colormapMoisture(num){
       color = 'green';
     }
     else if (num >= 3 && num < 6){
-      color = 'yellow';
+      color = '#FFDD00';
     }
     else {
       color = 'red';
@@ -82,7 +82,7 @@ function colormapSolarRadiation(num){
       color = 'green';
     }
     else if (num > 299 && num <= 599){
-      color = 'yellow';
+      color = '#FFDD00';
     }
     else {
       color = 'red';
@@ -100,7 +100,7 @@ function colormapWindSpeed(num){
       color = 'green';
     }
     else if (num >= 5 && num < 15){
-      color = 'yellow';
+      color = '#FFDD00';
     }
     else if (num >= 15 && num < 25){
       color = 'orange';
@@ -118,7 +118,7 @@ function colormapWindSpeed(num){
 function colormapPressure(num){
     let color;
     if (num >= 950 && num <= 1020){
-      color = 'yellow';
+      color = '#FFDD00';
     }
     else if (num > 1020 && num < 1050){
       color = 'green';
@@ -139,7 +139,7 @@ function colormapPreciptotal(num){
       color = 'green';
     }
     else if (num > 4.5 && num <= 10){
-      color = 'yellow';
+      color = '#FFDD00';
     }
     else {
       color = 'red';
@@ -157,7 +157,7 @@ function colormapPrecipRate(num){
       color = 'green';
     }
     else if (num > 5 && num <= 15){
-      color = 'yellow';
+      color = '#FFDD00';
     }
     else {
       color = 'red';
